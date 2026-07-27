@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Play, MapPin, Calendar, Route } from "lucide-react";
@@ -10,6 +9,7 @@ import { getExpedition, getExpeditionSlugs } from "@/lib/content";
 import { profile } from "@/data/profile";
 import { videoWatchUrl } from "@/data/social-videos";
 import CoverImage from "@/components/ui/CoverImage";
+import ExpeditionGallerySection from "@/components/content/ExpeditionGallerySection";
 import { formatNumber } from "@/lib/utils";
 
 interface Props {
@@ -153,44 +153,44 @@ export default async function ExpeditionPage({ params }: Props) {
           </div>
 
           {expedition.gallery.length > 0 && (
-            <div id="gallery" className="mt-24">
-              <h2 className="heading-md mb-8">Gallery</h2>
-              <div className={expedition.gallery.length > 24 ? "masonry-grid" : "grid grid-cols-2 md:grid-cols-3 gap-4"}>
-                {expedition.gallery.map((img) =>
-                  expedition.gallery.length > 24 ? (
-                    <div key={img} className="masonry-item overflow-hidden bg-secondary">
-                      <Image
-                        src={img}
-                        alt=""
-                        width={1200}
-                        height={900}
-                        className="w-full h-auto img-contain-center"
-                        sizes="33vw"
-                      />
-                    </div>
-                  ) : (
-                    <div key={img} className="thumb-frame aspect-[4/3]">
-                      <CoverImage src={img} alt="" sizes="33vw" />
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
+            <ExpeditionGallerySection images={expedition.gallery} />
           )}
 
           {expedition.timeline.length > 0 && expedition.status !== "upcoming" && (
             <div className="mt-24">
-              <h2 className="heading-md mb-8">Timeline</h2>
-              <div className="relative pl-8 border-l border-white/20">
-                {expedition.timeline.map((item) => (
-                  <div key={item.date} className="relative pb-10 last:pb-0">
-                    <div className="absolute -left-8 top-1 w-4 h-4 rounded-full border border-white/40 bg-primary" />
-                    <span className="text-xs text-muted">{item.date}</span>
-                    <h4 className="text-lg font-light text-off-white mt-1">{item.title}</h4>
-                    <p className="text-sm text-muted mt-1">{item.description}</p>
+              {expedition.timeline.some((item) => item.date) ? (
+                <>
+                  <h2 className="heading-md mb-8">Timeline</h2>
+                  <div className="relative pl-8 border-l border-white/20">
+                    {expedition.timeline.map((item) => (
+                      <div key={item.title} className="relative pb-10 last:pb-0">
+                        <div className="absolute -left-8 top-1 w-4 h-4 rounded-full border border-white/40 bg-primary" />
+                        {item.date && <span className="text-xs text-muted">{item.date}</span>}
+                        <h4 className="text-lg font-light text-off-white mt-1">{item.title}</h4>
+                        <p className="text-sm text-muted mt-1">{item.description}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </>
+              ) : (
+                <>
+                  <h2 className="heading-md mb-8">Along the Route</h2>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {expedition.timeline.map((item, i) => (
+                      <div
+                        key={item.title}
+                        className="p-6 border border-white/10 bg-secondary/40 hover:border-white/20 transition-colors"
+                      >
+                        <span className="text-[10px] uppercase tracking-[0.2em] text-sand">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <h4 className="text-lg font-light text-off-white mt-3">{item.title}</h4>
+                        <p className="text-sm text-muted mt-2 leading-relaxed">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           )}
         </div>

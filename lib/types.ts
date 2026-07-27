@@ -31,7 +31,7 @@ export interface Expedition {
   stats: { label: string; value: string }[];
   gallery: string[];
   videos: { title: string; youtubeId?: string; externalUrl?: string; thumbnail?: string }[];
-  timeline: { date: string; title: string; description: string }[];
+  timeline: { date?: string; title: string; description: string }[];
   seo: { title: string; description: string; keywords: string[] };
 }
 

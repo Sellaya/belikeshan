@@ -77,7 +77,7 @@ export default function FeaturedExpedition({ expedition }: FeaturedExpeditionPro
           >
             <div className="relative pl-8 border-l border-white/20">
               {expedition.timeline.map((item) => (
-                <div key={item.date} className="relative pb-10 last:pb-0">
+                <div key={item.title} className="relative pb-10 last:pb-0">
                   <div className="absolute -left-8 top-1 w-3 h-3 rounded-full bg-white" />
                   <span className="text-xs text-white/55">{item.date}</span>
                   <h4 className="text-lg font-medium text-white mt-1">{item.title}</h4>

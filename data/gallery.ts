@@ -364,4 +364,11 @@ export const galleryImages: GalleryImage[] = [
     caption: "Connection on the road",
     location: "USA Loop Expedition",
   },
+  {
+    src: "/media/gallery/gallery-52.jpg",
+    alt: "Pakistani flag at the United States Capitol during the USA Loop",
+    aspect: "wide",
+    caption: "Pakistan at the Capitol",
+    location: "Washington, D.C., USA",
+  },
 ];

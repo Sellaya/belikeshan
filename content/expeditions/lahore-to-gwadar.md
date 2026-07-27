@@ -3,7 +3,7 @@ slug: lahore-to-gwadar
 title: Lahore to Gwadar
 subtitle: 5,000 KM · 10 Days · Pakistan's Makran Coast
 description: The first long-distance solo ride after years of northern Pakistan stretches — 5,000 kilometres in 10 days from Lahore to Gwadar and Jiwni, across the Makran Coastal Highway, through Karachi, and into some of the most dramatic terrain in the country.
-coverImage: /media/expeditions/lahore-to-gwadar/gwadar-045.jpg
+coverImage: /media/expeditions/lahore-to-gwadar/gwadar-085.jpg
 featured: false
 status: completed
 era: past
@@ -32,27 +32,18 @@ stats:
     value: Solo ride
 videos: []
 timeline:
-  - date: "Feb 1"
-    title: Departure from Lahore
-    description: The ride began from Lahore — the first true long-distance expedition after many northern Pakistan stretches. Long days on the road ahead.
-  - date: "Feb 2–3"
-    title: Through Punjab & Sindh Interior
-    description: Rolling south through Punjab and Sindh — heat, traffic, and the rhythm of cross-country riding on Pakistani highways.
-  - date: "Feb 4"
-    title: Karachi — Sea View, Mazar-e-Quaid & Burns Road
-    description: Karachi stops including Sea View, Mazar-e-Quaid, a visit to the shrine, and legendary food from Burns Road before heading west toward the coast.
-  - date: "Feb 5–6"
-    title: Entering the Makran Coastal Highway
-    description: The landscape changed completely — desert meeting the Arabian Sea. One of the most beautiful and demanding roads in Pakistan.
-  - date: "Feb 7"
-    title: The Diesel Crash
-    description: A crash on the Makran Coastal Highway after diesel spilled from plastic gallons on the road surface. Gear and resilience tested — picked up and continued.
-  - date: "Feb 8–9"
-    title: Gwadar & the Coastal Landmarks
-    description: Ormara, Pasni, Kund Malir, Hingol, the Princess of Hope, and the coastal cliffs — every renowned stop along the Makran route.
-  - date: "Feb 10"
-    title: Jiwni — The End of the Road
-    description: Reached Jiwni, the western edge near the Iranian border — the farthest point of the journey and the end of 5,000 kilometres in 10 days.
+  - title: South through Punjab & Sindh
+    description: Rolling south from Lahore through Punjab and Sindh — heat, traffic, and long days on Pakistani highways toward the coast.
+  - title: Karachi
+    description: Sea View, Mazar-e-Quaid, Abdullah Shah Ghazi shrine, and Burns Road before turning west onto the Makran.
+  - title: Makran Coastal Highway
+    description: Desert meeting the Arabian Sea on N-10 — turquoise water on one side, golden cliffs on the other. One of the most scenic and demanding roads in Pakistan.
+  - title: Coastal Landmarks
+    description: Hingol National Park, Princess of Hope, Kund Malir Beach, Ormara, Pasni, and Gwadar along the cliff road.
+  - title: The Diesel Crash
+    description: Diesel spilled from plastic gallons on the highway surface turned the road slick without warning. Gear took the impact — picked up and kept riding.
+  - title: Jiwni
+    description: The western edge of Pakistan's coast near the Iranian border — the farthest point of 5,000 kilometres in 10 days.
 seo:
   title: Lahore to Gwadar — 5,000 KM Solo Motorcycle Journey | belikeshan
   description: Shan-e-Ali's 2022 solo ride from Lahore to Gwadar and Jiwni — 5,000 km in 10 days across the Makran Coastal Highway, Karachi, and Pakistan's most dramatic coastal terrain.
@@ -61,7 +52,7 @@ seo:
 
 ## The first long ride
 
-After years of northern Pakistan stretches — Hunza, Skardu, the high passes and mountain roads that built the foundation — this was the **first longest solo trip** I undertook across the length of the country.
+After years of northern Pakistan stretches — Skardu, the high passes and mountain roads that built the foundation — this was the **first longest solo trip** I undertook across the length of the country.
 
 **5,000 kilometres. 10 days. February 1 to February 10, 2022.**
 

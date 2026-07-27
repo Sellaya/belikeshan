@@ -34,14 +34,15 @@ function parseExpedition(slug: string, raw: string): Expedition & { content: str
         ? fs
             .readdirSync(path.join(process.cwd(), "public/media/expeditions", slug))
             .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
-            .sort()
+            .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
             .map((f) => `/media/expeditions/${slug}/${f}`)
         : (data.gallery ?? []),
     videos: data.videos ?? [],
     timeline: (data.timeline ?? []).map(
-      (item: { date: unknown; title: string; description: string }) => ({
-        ...item,
-        date: String(item.date),
+      (item: { date?: unknown; title: string; description: string }) => ({
+        title: item.title,
+        description: item.description,
+        ...(item.date != null && item.date !== "" ? { date: String(item.date) } : {}),
       })
     ),
     seo: data.seo ?? { title: data.title, description: data.description, keywords: [] },
