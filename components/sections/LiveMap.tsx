@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { MapPin, Route, Compass, Mail } from "lucide-react";
 import { profile } from "@/data/profile";
+import CoverImage from "@/components/ui/CoverImage";
 
 const planningSteps = [
   "Route research & corridor mapping",
@@ -31,12 +31,11 @@ export default function LiveMap() {
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 relative aspect-[16/10] overflow-hidden">
-            <Image
+          <div className="lg:col-span-2 thumb-frame aspect-[16/10]">
+            <CoverImage
               src="/media/gallery/gallery-52.jpg"
               alt="Upcoming adventure in process"
-              fill
-              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 66vw"
             />
             <div className="absolute inset-0 overlay-image-bottom" />
             <div className="absolute bottom-0 left-0 right-0 p-6">

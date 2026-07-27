@@ -217,9 +217,25 @@
   }
 
   @media (min-width: 768px) {
-    .body-lg {
-      font-size: 1.125rem;
+  .body-lg {
+    font-size: 1.125rem;
     }
+  }
+
+  .thumb-frame {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-secondary);
+  }
+
+  .img-cover-center {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .img-contain-center {
+    object-fit: contain;
+    object-position: center;
   }
 }
 

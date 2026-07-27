@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, MapPin, Calendar, Route } from "lucide-react";
@@ -9,6 +8,7 @@ import type { Expedition } from "@/lib/types";
 import { profile } from "@/data/profile";
 import { cn } from "@/lib/utils";
 import UsaLoopMap from "@/components/ui/UsaLoopMap";
+import CoverImage from "@/components/ui/CoverImage";
 
 interface JourneysProps {
   expeditions: Expedition[];
@@ -55,12 +55,11 @@ export default function Journeys({ expeditions }: JourneysProps) {
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
-          <div className="lg:col-span-3 relative aspect-[16/10] overflow-hidden">
-            <Image
+          <div className="lg:col-span-3 thumb-frame aspect-[16/10]">
+            <CoverImage
               src={preview?.coverImage ?? "/media/gallery/gallery-08.jpg"}
               alt={preview?.title ?? "Expedition preview"}
-              fill
-              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 60vw"
             />
             <div className="absolute inset-0 overlay-image-bottom" />
             {showMap && (
@@ -102,12 +101,12 @@ export default function Journeys({ expeditions }: JourneysProps) {
                       : "border-white/10 hover:border-white/20 hover:bg-white/[0.02]"
                   )}
                 >
-                  <div className="relative w-20 h-20 flex-shrink-0 overflow-hidden">
-                    <Image
+                  <div className="thumb-frame w-20 h-20 flex-shrink-0">
+                    <CoverImage
                       src={exp.coverImage}
                       alt={exp.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="80px"
+                      className="group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -171,12 +170,11 @@ export default function Journeys({ expeditions }: JourneysProps) {
                 <X size={24} />
               </button>
 
-              <div className="relative aspect-[21/9] flex-shrink-0">
-                <Image
+              <div className="thumb-frame aspect-[21/9] flex-shrink-0 max-h-[40vh]">
+                <CoverImage
                   src={modalExpedition.coverImage}
                   alt={modalExpedition.title}
-                  fill
-                  className="object-cover"
+                  sizes="100vw"
                 />
                 <div className="absolute inset-0 overlay-image-bottom" />
                 <div className="absolute bottom-6 left-6 right-6">

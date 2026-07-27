@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import type { Expedition } from "@/lib/types";
 import { SOCIAL_VIDEOS } from "@/data/social-videos";
+import CoverImage from "@/components/ui/CoverImage";
 
 interface FeaturedExpeditionProps {
   expedition: Expedition;
@@ -15,12 +15,11 @@ export default function FeaturedExpedition({ expedition }: FeaturedExpeditionPro
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <Image
+        <CoverImage
           src="/media/gallery/gallery-49.jpg"
           alt="USA Loop Expedition"
-          fill
-          className="object-cover"
           priority
+          sizes="100vw"
         />
       </div>
 

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { galleryImages } from "@/data/gallery";
+import CoverImage from "@/components/ui/CoverImage";
 
 export default function PhotoGallery() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -66,7 +67,7 @@ export default function PhotoGallery() {
               onClick={() => setLightboxIndex(i)}
             >
               <div
-                className={`relative w-full overflow-hidden ${
+                className={`thumb-frame w-full ${
                   img.aspect === "tall"
                     ? "aspect-[3/4]"
                     : img.aspect === "wide"
@@ -74,12 +75,11 @@ export default function PhotoGallery() {
                       : "aspect-square"
                 }`}
               >
-                <Image
+                <CoverImage
                   src={img.src}
                   alt={img.alt}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-500" />
                 {(img.caption || img.location) && (

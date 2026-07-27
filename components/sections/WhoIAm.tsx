@@ -1,11 +1,11 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { profile } from "@/data/profile";
 import { cn } from "@/lib/utils";
+import CoverImage from "@/components/ui/CoverImage";
 
 const timelineImages = [
   "/media/gallery/gallery-34.jpg",
@@ -49,12 +49,10 @@ export default function WhoIAm() {
 
         <div className="grid lg:grid-cols-[minmax(280px,360px)_1fr] gap-12 lg:gap-20 items-start">
           <motion.div style={{ y: imageY }} className="lg:sticky lg:top-28 space-y-6">
-            <div className="relative aspect-[4/5] overflow-hidden border border-white/10">
-              <Image
+            <div className="thumb-frame aspect-[4/5] border border-white/10">
+              <CoverImage
                 src={profile.portrait}
                 alt={profile.name}
-                fill
-                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 360px"
                 priority
               />
@@ -123,7 +121,7 @@ export default function WhoIAm() {
               </div>
 
               <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-6 lg:gap-8">
-                <div className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-secondary">
+                <div className="thumb-frame aspect-[16/10] border border-white/10 bg-secondary">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeImage}
@@ -133,11 +131,9 @@ export default function WhoIAm() {
                       transition={{ duration: 0.45 }}
                       className="absolute inset-0"
                     >
-                      <Image
+                      <CoverImage
                         src={activeImage}
                         alt={activeItem.title}
-                        fill
-                        className="object-cover"
                         sizes="(max-width: 1024px) 100vw, 55vw"
                       />
                       <div className="absolute inset-0 overlay-image-bottom" />

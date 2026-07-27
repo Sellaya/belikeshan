@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Play, X } from "lucide-react";
 import { films, youtubeChannel } from "@/data/films";
+import CoverImage from "@/components/ui/CoverImage";
 
 export default function Filmmaking() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
@@ -44,13 +44,12 @@ export default function Filmmaking() {
                 }
               }}
             >
-              <div className="relative aspect-[16/9] overflow-hidden">
-                <Image
+              <div className="thumb-frame aspect-[16/9]">
+                <CoverImage
                   src={film.thumbnail}
                   alt={film.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  className="transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 overlay-image-bottom" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />

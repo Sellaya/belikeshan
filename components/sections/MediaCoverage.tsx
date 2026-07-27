@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ExternalLink, Mic, Tv, FileText, Instagram, Facebook } from "lucide-react";
@@ -11,6 +10,7 @@ import {
   pressLogos,
 } from "@/data/media";
 import type { MediaItem } from "@/lib/types";
+import CoverImage from "@/components/ui/CoverImage";
 
 const platformIcons = {
   web: FileText,
@@ -37,15 +37,20 @@ function MediaCard({ item, large = false }: { item: MediaItem; large?: boolean }
       transition={{ duration: 0.6 }}
     >
       {item.thumbnail && (
-        <div className={`relative overflow-hidden ${large ? "aspect-[16/10] md:aspect-auto md:min-h-full" : "aspect-[16/10]"}`}>
-          <Image
+        <div
+          className={`thumb-frame ${
+            large ? "aspect-[16/10] md:aspect-[16/10] md:min-h-[280px]" : "aspect-[16/10]"
+          }`}
+        >
+          <CoverImage
             src={item.thumbnail}
             alt={item.title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            fit={item.category === "television" || item.category === "social" ? "contain" : "cover"}
+            position="center"
+            className="transition-transform duration-700 group-hover:scale-[1.02]"
             sizes={large ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent pointer-events-none" />
           {item.featured && (
             <span className="absolute top-4 left-4 label-text text-[10px] bg-white text-primary px-3 py-1">
               Featured Story

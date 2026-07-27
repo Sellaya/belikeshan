@@ -119,7 +119,7 @@ For Shan-e-Ali, the USA Loop was never just about distance. It was about motion 
 
 Shan-e-Ali completed a 33-day, 10,000-mile (16,000-kilometre) solo motorcycle loop across **25 U.S. states** on a **Suzuki DR650** while travelling on a **Pakistani passport** and carrying the **Pakistani flag**.
 
-The ride crossed northern, western, southern and eastern regions of the United States — from the snow of Yellowstone to the red rocks of Monument Valley, along California Highway 1 and Route 66, through Texas, Arkansas, New Orleans, Florida, Tennessee, Virginia and Washington, D.C.
+The ride crossed northern, western, southern and eastern regions of the United States — from the snow of Yellowstone to the red rocks of Monument Valley, along California Highway 1 and Route 66, through Texas, Arkansas, Tennessee, Virginia and Washington, D.C.
 
 ## What the Road Demanded
 
@@ -142,4 +142,4 @@ These encounters allowed both sides to learn about one another beyond politics a
 
 ## Key Locations
 
-Yellowstone · Wyoming · Montana · Badlands · Monument Valley · Utah · Arches National Park · Arizona · Pacific Coast Highway · Redwoods · Oregon · Route 66 · Adrian, Texas · Cadillac Ranch · Fort Worth · Hot Springs, Arkansas · New Orleans · Florida · Tennessee · Hardy, Virginia · Washington, D.C.
+Yellowstone · Wyoming · Montana · Badlands · Monument Valley · Utah · Arches National Park · Arizona · Pacific Coast Highway · Redwoods · Oregon · Route 66 · Adrian, Texas · Cadillac Ranch · Fort Worth · Hot Springs, Arkansas · Tennessee · Hardy, Virginia · Washington, D.C.

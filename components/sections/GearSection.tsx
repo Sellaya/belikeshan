@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { gear } from "@/data/gear";
+import CoverImage from "@/components/ui/CoverImage";
 import type { GearItem } from "@/lib/types";
 
 const categories = [
@@ -47,13 +47,12 @@ export default function GearSection() {
                 transition={{ delay: i * 0.05 }}
                 onClick={() => setActive(item)}
               >
-                <div className="relative aspect-square overflow-hidden mb-3 border border-white/5 group-hover:border-white/30 transition-all duration-500">
-                  <Image
+                <div className="thumb-frame aspect-square mb-3 border border-white/5 group-hover:border-white/30 transition-all duration-500">
+                  <CoverImage
                     src={item.image}
                     alt={item.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                     sizes="150px"
+                    className="group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/0 transition-colors" />
                 </div>
@@ -88,8 +87,8 @@ export default function GearSection() {
               >
                 <X size={20} />
               </button>
-              <div className="relative aspect-[16/9]">
-                <Image src={active.image} alt={active.name} fill className="object-cover" />
+              <div className="thumb-frame aspect-[16/9]">
+                <CoverImage src={active.image} alt={active.name} fit="contain" />
               </div>
               <div className="p-8">
                 <span className="label-text text-white">{active.brand}</span>

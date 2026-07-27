@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import type { BlogPost } from "@/lib/types";
+import CoverImage from "@/components/ui/CoverImage";
 
 interface JournalProps {
   posts: BlogPost[];
@@ -50,13 +50,12 @@ export default function Journal({ posts }: JournalProps) {
               transition={{ delay: i * 0.1 }}
             >
               <Link href={`/blog/${post.slug}`} data-cursor className="group block">
-                <div className="relative aspect-[16/10] overflow-hidden mb-4">
-                  <Image
+                <div className="thumb-frame aspect-[16/10] mb-4">
+                  <CoverImage
                     src={post.coverImage}
                     alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    className="transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
                 <span className="label-text text-[10px]">

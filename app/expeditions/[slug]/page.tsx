@@ -9,6 +9,7 @@ import MarkdownContent from "@/components/content/MarkdownContent";
 import { getExpedition, getExpeditionSlugs } from "@/lib/content";
 import { profile } from "@/data/profile";
 import { videoWatchUrl } from "@/data/social-videos";
+import CoverImage from "@/components/ui/CoverImage";
 import { formatNumber } from "@/lib/utils";
 
 interface Props {
@@ -40,13 +41,12 @@ export default async function ExpeditionPage({ params }: Props) {
     <>
       <Navigation />
       <main className="pt-24">
-        <div className="relative h-[60vh] md:h-[70vh]">
-          <Image
+        <div className="relative h-[60vh] md:h-[70vh] thumb-frame">
+          <CoverImage
             src={expedition.coverImage}
             alt={expedition.title}
-            fill
-            className="object-cover"
             priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 overlay-image-bottom" />
           <div className="absolute bottom-0 left-0 right-0 container-wide pb-12 text-white">
@@ -158,19 +158,19 @@ export default async function ExpeditionPage({ params }: Props) {
               <div className={expedition.gallery.length > 24 ? "masonry-grid" : "grid grid-cols-2 md:grid-cols-3 gap-4"}>
                 {expedition.gallery.map((img) =>
                   expedition.gallery.length > 24 ? (
-                    <div key={img} className="masonry-item overflow-hidden">
+                    <div key={img} className="masonry-item overflow-hidden bg-secondary">
                       <Image
                         src={img}
                         alt=""
-                        width={800}
-                        height={600}
-                        className="w-full h-auto object-cover"
+                        width={1200}
+                        height={900}
+                        className="w-full h-auto img-contain-center"
                         sizes="33vw"
                       />
                     </div>
                   ) : (
-                    <div key={img} className="relative aspect-[4/3] overflow-hidden">
-                      <Image src={img} alt="" fill className="object-cover" sizes="33vw" />
+                    <div key={img} className="thumb-frame aspect-[4/3]">
+                      <CoverImage src={img} alt="" sizes="33vw" />
                     </div>
                   )
                 )}

@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Instagram, Play, Youtube } from "lucide-react";
 import type { SocialFeedItem } from "@/lib/types";
 import { SOCIAL_CHANNELS } from "@/data/social-videos";
+import CoverImage from "@/components/ui/CoverImage";
 
 interface RecentSocialProps {
   youtube: SocialFeedItem[];
@@ -34,13 +34,12 @@ function VideoCard({
       viewport={{ once: true }}
       transition={{ delay: index * 0.05 }}
     >
-      <div className={`relative ${aspectClass} overflow-hidden border border-white/5 group-hover:border-white/30 transition-all duration-500`}>
-        <Image
+      <div className={`relative ${aspectClass} overflow-hidden border border-white/5 group-hover:border-white/30 transition-all duration-500 thumb-frame`}>
+        <CoverImage
           src={item.thumbnail}
           alt={item.title}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
           sizes="(max-width: 768px) 50vw, 25vw"
+          className="transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 overlay-image-bottom" />
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />

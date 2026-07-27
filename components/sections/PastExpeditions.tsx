@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, MapPin, Route } from "lucide-react";
 import type { Expedition } from "@/lib/types";
 import { gwadarFeaturedGallery } from "@/data/gwadar-featured";
-import { cn } from "@/lib/utils";
+import CoverImage from "@/components/ui/CoverImage";
 
 interface PastExpeditionsProps {
   expeditions: Expedition[];
@@ -38,16 +37,14 @@ export default function PastExpeditions({ expeditions }: PastExpeditionsProps) {
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="relative aspect-[4/3] overflow-hidden border border-white/10"
+                className="thumb-frame aspect-[4/3] border border-white/10"
               >
-                <Image
+                <CoverImage
                   src={expedition.coverImage}
                   alt={expedition.title}
-                  fill
-                  className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 overlay-image-bottom" />
+                <div className="absolute inset-0 overlay-image-bottom pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <span className="label-on-image">🇵🇰 Pakistan · {expedition.startDate.slice(0, 4)}</span>
                   <h3 className="text-2xl md:text-3xl font-medium text-white mt-2">{expedition.title}</h3>
@@ -112,7 +109,7 @@ export default function PastExpeditions({ expeditions }: PastExpeditionsProps) {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
                   {gwadarFeaturedGallery.map((item, i) => (
                     <motion.div
                       key={item.src}
@@ -120,21 +117,18 @@ export default function PastExpeditions({ expeditions }: PastExpeditionsProps) {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.04 }}
-                      className={cn(
-                        "relative overflow-hidden border border-white/8 group",
-                        item.aspect === "tall" ? "row-span-2 aspect-[3/4]" : "aspect-[4/3]",
-                        i === 0 && "md:col-span-2 md:row-span-2 md:aspect-auto md:min-h-[320px]"
-                      )}
+                      className={`thumb-frame aspect-[4/3] border border-white/8 group ${
+                        i === 0 ? "sm:col-span-2 sm:aspect-[16/9]" : ""
+                      }`}
                     >
-                      <Image
+                      <CoverImage
                         src={item.src}
                         alt={item.caption}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 768px) 50vw, 25vw"
+                        className="transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
-                      <p className="absolute bottom-0 left-0 right-0 p-3 text-xs text-white/90 font-medium">
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/10 to-transparent pointer-events-none" />
+                      <p className="absolute bottom-0 left-0 right-0 p-3 text-xs text-white/90 font-medium z-10">
                         {item.caption}
                       </p>
                     </motion.div>
