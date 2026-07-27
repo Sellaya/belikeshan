@@ -49,7 +49,7 @@ export default function ClickableMasonryGallery({
               data-cursor
               className={`masonry-item relative w-full overflow-hidden group ${
                 wide ? "border border-white/5 bg-secondary" : ""
-              }`}
+              } active:opacity-90`}
               onClick={() => setLightboxIndex(fullIndex)}
             >
               <Image
@@ -64,7 +64,7 @@ export default function ClickableMasonryGallery({
                     : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 }
               />
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 group-active:bg-primary/30 transition-colors duration-500" />
             </button>
           );
 

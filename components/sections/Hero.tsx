@@ -6,14 +6,14 @@ import { profile } from "@/data/profile";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative min-h-dvh w-full overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center scale-105"
         style={{ backgroundImage: "url(/media/gallery/gallery-34.jpg)" }}
       />
       <div className="absolute inset-0 hero-overlay" />
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 text-white">
+      <div className="relative z-10 min-h-dvh flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-20 pb-24 safe-bottom text-white">
         <motion.p
           className="label-on-image mb-4"
           initial={{ opacity: 0, y: 20 }}
@@ -83,7 +83,7 @@ export default function Hero() {
       </div>
 
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+        className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-3 safe-bottom"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.8 }}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -18,6 +18,8 @@ export default function ImageLightbox({
   onClose,
   onIndexChange,
 }: ImageLightboxProps) {
+  const touchStartX = useRef<number | null>(null);
+
   const prev = useCallback(() => {
     if (index === null) return;
     onIndexChange((index - 1 + images.length) % images.length);
@@ -43,6 +45,20 @@ export default function ImageLightbox({
     };
   }, [index, onClose, prev, next]);
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(diff) > 48) {
+      if (diff > 0) prev();
+      else next();
+    }
+    touchStartX.current = null;
+  };
+
   return (
     <AnimatePresence>
       {index !== null && images[index] && (
@@ -51,12 +67,14 @@ export default function ImageLightbox({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         >
           <button
             type="button"
             data-cursor
             onClick={onClose}
-            className="absolute top-6 right-6 p-2 text-off-white/60 hover:text-off-white z-10"
+            className="absolute top-4 right-4 md:top-6 md:right-6 touch-target flex items-center justify-center text-off-white/60 hover:text-off-white z-10"
             aria-label="Close"
           >
             <X size={28} />
@@ -65,7 +83,7 @@ export default function ImageLightbox({
             type="button"
             data-cursor
             onClick={prev}
-            className="absolute left-4 md:left-8 p-2 text-off-white/60 hover:text-off-white z-10"
+            className="absolute left-2 md:left-8 touch-target flex items-center justify-center text-off-white/60 hover:text-off-white z-10"
             aria-label="Previous image"
           >
             <ChevronLeft size={32} />
@@ -74,7 +92,7 @@ export default function ImageLightbox({
             type="button"
             data-cursor
             onClick={next}
-            className="absolute right-4 md:right-8 p-2 text-off-white/60 hover:text-off-white z-10"
+            className="absolute right-2 md:right-8 touch-target flex items-center justify-center text-off-white/60 hover:text-off-white z-10"
             aria-label="Next image"
           >
             <ChevronRight size={32} />
@@ -84,19 +102,19 @@ export default function ImageLightbox({
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.97 }}
-            className="relative w-full max-w-6xl mx-4 max-h-[85vh]"
+            className="relative w-full max-w-6xl mx-2 sm:mx-4 max-h-[75dvh] md:max-h-[85vh]"
           >
             <Image
               src={images[index]}
               alt=""
               width={1600}
               height={1200}
-              className="w-full h-auto max-h-[85vh] object-contain mx-auto"
+              className="w-full h-auto max-h-[75dvh] md:max-h-[85vh] object-contain mx-auto"
               sizes="100vw"
               priority
             />
           </motion.div>
-          <p className="absolute bottom-6 left-0 right-0 text-center text-sm text-muted">
+          <p className="absolute bottom-4 md:bottom-6 left-0 right-0 text-center text-sm text-muted safe-bottom">
             {index + 1} / {images.length}
           </p>
         </motion.div>

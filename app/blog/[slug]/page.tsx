@@ -42,7 +42,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <>
       <Navigation />
-      <main className="pt-24">
+      <main className="pt-nav">
         <div className="relative h-[40vh] md:h-[50vh]">
           <Image
             src={post.coverImage}

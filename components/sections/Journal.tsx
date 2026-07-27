@@ -25,7 +25,7 @@ export default function Journal({ posts }: JournalProps) {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex items-end justify-between mb-16 md:mb-24"
+          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 md:mb-24"
         >
           <div>
             <span className="label-text">Journal</span>
@@ -34,13 +34,13 @@ export default function Journal({ posts }: JournalProps) {
           <Link
             href="/blog"
             data-cursor
-            className="hidden md:flex items-center gap-2 text-sm uppercase tracking-wider text-muted hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-muted hover:text-white transition-colors"
           >
             View all <ArrowRight size={16} />
           </Link>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {posts.slice(0, 3).map((post, i) => (
             <motion.article
               key={post.slug}

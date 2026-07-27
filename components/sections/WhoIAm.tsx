@@ -6,6 +6,7 @@ import { MapPin } from "lucide-react";
 import { profile } from "@/data/profile";
 import { cn } from "@/lib/utils";
 import CoverImage from "@/components/ui/CoverImage";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 const timelineImages = [
   "/media/gallery/gallery-34.jpg",
@@ -20,11 +21,13 @@ const timelineStatus = ["past", "past", "past", "current", "brand"] as const;
 export default function WhoIAm() {
   const ref = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(2);
+  const isMobile = useIsMobile(1024);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const imageY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   const activeItem = profile.timeline[activeIndex];
   const activeImage = timelineImages[activeIndex] ?? profile.portrait;
+  const portraitMotionStyle = isMobile ? undefined : { y: imageY };
 
   return (
     <section id="about" ref={ref} className="relative section-padding bg-primary overflow-hidden">
@@ -48,7 +51,7 @@ export default function WhoIAm() {
         </motion.div>
 
         <div className="grid lg:grid-cols-[minmax(280px,360px)_1fr] gap-12 lg:gap-20 items-start">
-          <motion.div style={{ y: imageY }} className="lg:sticky lg:top-28 space-y-6">
+          <motion.div style={portraitMotionStyle} className="lg:sticky lg:top-28 space-y-6">
             <div className="thumb-frame aspect-[4/5] border border-white/10">
               <CoverImage
                 src={profile.portrait}
@@ -83,9 +86,9 @@ export default function WhoIAm() {
 
             <div className="grid grid-cols-3 gap-px bg-white/10 border border-white/10">
               {profile.achievements.slice(0, 3).map((stat) => (
-                <div key={stat.label} className="bg-primary px-3 py-4 text-center">
-                  <p className="text-lg md:text-xl font-medium text-white">{stat.value}</p>
-                  <p className="label-text mt-1 text-[9px]">{stat.label}</p>
+                <div key={stat.label} className="bg-primary px-2 sm:px-3 py-3 sm:py-4 text-center">
+                  <p className="text-base sm:text-lg md:text-xl font-medium text-white">{stat.value}</p>
+                  <p className="label-text mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>

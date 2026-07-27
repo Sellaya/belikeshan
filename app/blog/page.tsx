@@ -24,7 +24,7 @@ export default function BlogPage() {
   return (
     <>
       <Navigation />
-      <main className="pt-32 pb-24">
+      <main className="pt-nav pb-16 md:pb-24">
         <div className="container-wide">
           <span className="label-text">Journal</span>
           <h1 className="heading-lg mt-6 mb-16">Stories from the road.</h1>

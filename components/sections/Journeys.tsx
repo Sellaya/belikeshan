@@ -54,8 +54,8 @@ export default function Journeys({ expeditions }: JourneysProps) {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
-          <div className="lg:col-span-3 thumb-frame aspect-[16/10]">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-16">
+          <div className="lg:col-span-3 thumb-frame aspect-[4/3] sm:aspect-[16/10]">
             <CoverImage
               src={preview?.coverImage ?? "/media/gallery/gallery-08.jpg"}
               alt={preview?.title ?? "Expedition preview"}
@@ -145,7 +145,7 @@ export default function Journeys({ expeditions }: JourneysProps) {
       <AnimatePresence>
         {modalExpedition && (
           <motion.div
-            className="fixed inset-0 z-[8000] flex items-end md:items-center justify-center"
+            className="fixed inset-0 z-[8000] flex items-end md:items-center justify-center safe-x"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -155,7 +155,7 @@ export default function Journeys({ expeditions }: JourneysProps) {
               onClick={() => setModalExpedition(null)}
             />
             <motion.div
-              className="relative w-full md:max-w-4xl max-h-[90vh] flex flex-col bg-secondary m-0 md:m-6 overflow-hidden"
+              className="relative w-full md:max-w-4xl max-h-[92dvh] md:max-h-[90vh] flex flex-col bg-secondary m-0 md:m-6 overflow-hidden rounded-t-2xl md:rounded-none safe-bottom"
               data-lenis-prevent
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -163,14 +163,15 @@ export default function Journeys({ expeditions }: JourneysProps) {
               onClick={(e) => e.stopPropagation()}
             >
               <button
+                type="button"
                 data-cursor
                 onClick={() => setModalExpedition(null)}
-                className="absolute top-4 right-4 z-20 p-2 text-white/70 hover:text-white transition-colors"
+                className="absolute top-3 right-3 md:top-4 md:right-4 z-20 touch-target flex items-center justify-center text-white/70 hover:text-white transition-colors"
               >
                 <X size={24} />
               </button>
 
-              <div className="thumb-frame aspect-[21/9] flex-shrink-0 max-h-[40vh]">
+              <div className="thumb-frame aspect-[16/10] sm:aspect-[21/9] flex-shrink-0 max-h-[35vh] sm:max-h-[40vh]">
                 <CoverImage
                   src={modalExpedition.coverImage}
                   alt={modalExpedition.title}

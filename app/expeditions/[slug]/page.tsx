@@ -40,8 +40,8 @@ export default async function ExpeditionPage({ params }: Props) {
   return (
     <>
       <Navigation />
-      <main className="pt-24">
-        <div className="relative h-[60vh] md:h-[70vh] thumb-frame">
+      <main className="pt-nav">
+        <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] thumb-frame">
           <CoverImage
             src={expedition.coverImage}
             alt={expedition.title}
@@ -49,28 +49,28 @@ export default async function ExpeditionPage({ params }: Props) {
             sizes="100vw"
           />
           <div className="absolute inset-0 overlay-image-bottom" />
-          <div className="absolute bottom-0 left-0 right-0 container-wide pb-12 text-white">
+          <div className="absolute bottom-0 left-0 right-0 container-wide pb-6 sm:pb-12 text-white">
             <Link
               href="/#journeys"
-              className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-6"
+              className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-4 sm:mb-6"
             >
               <ArrowLeft size={16} /> All Journeys
             </Link>
-            <div className="flex gap-2 mb-4">
+            <div className="flex gap-2 mb-3 sm:mb-4">
               {expedition.countryFlags.map((flag) => (
-                <span key={flag} className="text-3xl">{flag}</span>
+                <span key={flag} className="text-2xl sm:text-3xl">{flag}</span>
               ))}
             </div>
             <h1 className="heading-lg text-white">{expedition.title}</h1>
-            <p className="text-xl text-white/75 mt-2">{expedition.subtitle}</p>
+            <p className="text-base sm:text-xl text-white/75 mt-2">{expedition.subtitle}</p>
           </div>
         </div>
 
-        <div className="container-wide py-16 md:py-24">
-          <div className="grid md:grid-cols-4 gap-4 mb-16">
+        <div className="container-wide py-12 md:py-24">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12 md:mb-16">
             {expedition.stats.map((stat) => (
-              <div key={stat.label} className="p-6 border border-white/5 text-center">
-                <p className="text-3xl font-light text-white">{stat.value}</p>
+              <div key={stat.label} className="p-4 md:p-6 border border-white/5 text-center">
+                <p className="text-xl sm:text-3xl font-light text-white">{stat.value}</p>
                 <p className="label-text mt-2">{stat.label}</p>
               </div>
             ))}

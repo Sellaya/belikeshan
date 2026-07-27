@@ -25,6 +25,14 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const scrollTo = (href: string) => {
     setMenuOpen(false);
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
@@ -34,8 +42,8 @@ export default function Navigation() {
     <>
       <motion.header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          scrolled ? "py-4 glass" : "py-6 bg-transparent"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 safe-top safe-x",
+          scrolled ? "py-3 md:py-4 glass" : "py-4 md:py-6 bg-transparent"
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -47,9 +55,10 @@ export default function Navigation() {
             data-cursor
             onClick={(e) => {
               e.preventDefault();
+              setMenuOpen(false);
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="text-sm lowercase tracking-[0.08em] font-medium text-white hover:text-white/80 transition-colors"
+            className="text-sm lowercase tracking-[0.08em] font-medium text-white hover:text-white/80 transition-colors py-2"
           >
             {profile.brand}
           </a>
@@ -64,7 +73,7 @@ export default function Navigation() {
                     e.preventDefault();
                     scrollTo(link.href);
                   }}
-                  className="text-xs uppercase tracking-[0.12em] text-white/60 hover:text-white transition-colors"
+                  className="text-xs uppercase tracking-[0.12em] text-white/60 hover:text-white transition-colors py-2"
                 >
                   {link.label}
                 </a>
@@ -73,9 +82,11 @@ export default function Navigation() {
           </ul>
 
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2"
+            type="button"
+            className="md:hidden touch-target flex flex-col items-center justify-center gap-1.5"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
             <span className={cn("block w-6 h-[1px] bg-off-white transition-transform", menuOpen && "rotate-45 translate-y-[3.5px]")} />
             <span className={cn("block w-6 h-[1px] bg-off-white transition-opacity", menuOpen && "opacity-0")} />
@@ -86,11 +97,15 @@ export default function Navigation() {
 
       {menuOpen && (
         <motion.div
-          className="fixed inset-0 z-40 bg-primary/98 backdrop-blur-xl flex items-center justify-center md:hidden"
+          className="fixed inset-0 z-40 bg-primary/98 backdrop-blur-xl flex items-center justify-center md:hidden safe-top safe-bottom safe-x"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          onClick={() => setMenuOpen(false)}
         >
-          <ul className="flex flex-col items-center gap-8">
+          <ul
+            className="flex flex-col items-center gap-6 sm:gap-8"
+            onClick={(e) => e.stopPropagation()}
+          >
             {links.map((link) => (
               <li key={link.href}>
                 <a
@@ -99,7 +114,7 @@ export default function Navigation() {
                     e.preventDefault();
                     scrollTo(link.href);
                   }}
-                  className="text-2xl font-light tracking-wide text-off-white"
+                  className="block py-2 text-2xl sm:text-3xl font-light tracking-wide text-off-white"
                 >
                   {link.label}
                 </a>

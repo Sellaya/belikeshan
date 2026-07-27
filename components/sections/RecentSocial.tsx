@@ -66,12 +66,14 @@ function PlatformFeed({
   href,
   items,
   aspectClass,
+  gridClass = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4",
 }: {
   label: string;
   icon: typeof Youtube;
   href: string;
   items: SocialFeedItem[];
   aspectClass: string;
+  gridClass?: string;
 }) {
   if (items.length === 0) return null;
 
@@ -92,7 +94,7 @@ function PlatformFeed({
           View channel
         </a>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className={gridClass}>
         {items.map((item, i) => (
           <VideoCard key={item.id} item={item} index={i} aspectClass={aspectClass} />
         ))}
@@ -133,7 +135,8 @@ export default function RecentSocial({ youtube, instagram }: RecentSocialProps) 
             icon={Instagram}
             href={SOCIAL_CHANNELS.instagram}
             items={instagram}
-            aspectClass="aspect-[9/16]"
+            aspectClass="aspect-[9/16] max-h-[70vh] sm:max-h-none"
+            gridClass="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
           />
         </div>
       </div>

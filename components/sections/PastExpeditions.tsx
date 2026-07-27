@@ -6,12 +6,14 @@ import { ArrowRight, Calendar, MapPin, Route } from "lucide-react";
 import type { Expedition } from "@/lib/types";
 import CoverImage from "@/components/ui/CoverImage";
 import ClickableMasonryGallery from "@/components/ui/ClickableMasonryGallery";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 interface PastExpeditionsProps {
   expeditions: Expedition[];
 }
 
 export default function PastExpeditions({ expeditions }: PastExpeditionsProps) {
+  const isMobile = useIsMobile();
   if (expeditions.length === 0) return null;
 
   return (
@@ -45,10 +47,10 @@ export default function PastExpeditions({ expeditions }: PastExpeditionsProps) {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 overlay-image-bottom pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
                   <span className="label-on-image">🇵🇰 Pakistan · {expedition.startDate.slice(0, 4)}</span>
-                  <h3 className="text-2xl md:text-3xl font-medium text-white mt-2">{expedition.title}</h3>
-                  <p className="text-white/75 mt-1">{expedition.subtitle}</p>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-medium text-white mt-2">{expedition.title}</h3>
+                  <p className="text-sm sm:text-base text-white/75 mt-1">{expedition.subtitle}</p>
                 </div>
               </motion.div>
 
@@ -60,11 +62,11 @@ export default function PastExpeditions({ expeditions }: PastExpeditionsProps) {
               >
                 <p className="body-lg">{expedition.description}</p>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   {expedition.stats.slice(0, 4).map((stat) => (
-                    <div key={stat.label} className="p-4 border border-white/10 bg-primary/40">
-                      <p className="text-lg font-medium text-white">{stat.value}</p>
-                      <p className="label-text mt-1 text-[9px]">{stat.label}</p>
+                    <div key={stat.label} className="p-3 sm:p-4 border border-white/10 bg-primary/40">
+                      <p className="text-base sm:text-lg font-medium text-white">{stat.value}</p>
+                      <p className="label-text mt-1">{stat.label}</p>
                     </div>
                   ))}
                 </div>
@@ -100,9 +102,13 @@ export default function PastExpeditions({ expeditions }: PastExpeditionsProps) {
 
             {expedition.gallery.length > 0 && (
               <div>
-                <ClickableMasonryGallery images={expedition.gallery} previewCount={30} wide />
+                <ClickableMasonryGallery
+                  images={expedition.gallery}
+                  previewCount={isMobile ? 12 : 30}
+                  wide
+                />
 
-                {expedition.gallery.length > 30 && (
+                {expedition.gallery.length > (isMobile ? 12 : 30) && (
                   <div className="mt-8 text-center">
                     <Link
                       href={`/expeditions/${expedition.slug}#gallery`}
