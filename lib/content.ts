@@ -17,6 +17,7 @@ function parseExpedition(slug: string, raw: string): Expedition & { content: str
     heroVideo: data.heroVideo,
     featured: data.featured ?? false,
     status: data.status ?? "completed",
+    era: data.era ?? (data.status === "upcoming" ? "upcoming" : data.featured ? "recent" : "past"),
     startDate: String(data.startDate),
     endDate: data.endDate ? String(data.endDate) : undefined,
     countries: data.countries ?? [],
@@ -28,7 +29,14 @@ function parseExpedition(slug: string, raw: string): Expedition & { content: str
     coordinates: data.coordinates ?? [],
     mapCenter: data.mapCenter ?? { lat: 0, lng: 0 },
     stats: data.stats ?? [],
-    gallery: data.gallery ?? [],
+    gallery:
+      data.galleryAuto && fs.existsSync(path.join(process.cwd(), "public/media/expeditions", slug))
+        ? fs
+            .readdirSync(path.join(process.cwd(), "public/media/expeditions", slug))
+            .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
+            .sort()
+            .map((f) => `/media/expeditions/${slug}/${f}`)
+        : (data.gallery ?? []),
     videos: data.videos ?? [],
     timeline: (data.timeline ?? []).map(
       (item: { date: unknown; title: string; description: string }) => ({
@@ -75,6 +83,14 @@ export function getExpedition(slug: string): (Expedition & { content: string }) 
   if (!fs.existsSync(filePath)) return null;
   const raw = fs.readFileSync(filePath, "utf-8");
   return parseExpedition(slug, raw);
+}
+
+export function getPastExpeditions(): Expedition[] {
+  return getExpeditions().filter((e) => e.era === "past");
+}
+
+export function getRecentExpeditions(): Expedition[] {
+  return getExpeditions().filter((e) => e.era !== "past");
 }
 
 export function getFeaturedExpedition(): Expedition | null {

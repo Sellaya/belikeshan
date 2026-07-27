@@ -19,7 +19,7 @@ export const featuredStory: MediaItem = {
 export const televisionInterviews: MediaItem[] = [
   {
     id: "ary-news",
-    title: "ARY News — Broadcast Interview",
+    title: "ARY News — Shan Ali's Global Achievement",
     publication: "ARY News",
     type: "tv",
     category: "television",
@@ -27,8 +27,8 @@ export const televisionInterviews: MediaItem[] = [
     date: "2026",
     link: "https://www.facebook.com/share/r/1B12feQ5fe/",
     excerpt:
-      "Television coverage of the USA Loop expedition and the story behind the Pakistani flag on American roads.",
-    thumbnail: "/media/press/press-02.jpg",
+      "Pakistani biker Shan Ali's unique global achievement — television coverage of the USA Loop expedition and the Pakistani flag on American roads.",
+    thumbnail: "/media/press/ary-news.jpg",
   },
   {
     id: "express-news",
@@ -42,6 +42,19 @@ export const televisionInterviews: MediaItem[] = [
     excerpt:
       "Broadcast interview sharing the journey, the challenges and the cultural exchange at the heart of the ride.",
     thumbnail: "/media/press/press-06.jpg",
+  },
+  {
+    id: "hum-news",
+    title: "Hum News — Subh se Aagay Interview",
+    publication: "Hum News Pakistan",
+    type: "tv",
+    category: "television",
+    platform: "facebook",
+    date: "2026",
+    link: "https://www.facebook.com/share/v/1F6Fu9r1eJ/",
+    excerpt:
+      "Shan Ali on completing a historic 16,000-kilometre solo motorcycle journey across America — interviewed on Subh se Aagay.",
+    thumbnail: "/media/press/hum-news.jpg",
   },
 ];
 
@@ -232,6 +245,7 @@ export const pressLogos = [
   "Business Recorder",
   "ARY News",
   "Express News",
+  "Hum News",
   "Startup Pakistan",
   "Business Bytes",
   "Current Pakistan",

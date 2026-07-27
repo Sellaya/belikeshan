@@ -153,14 +153,27 @@ export default async function ExpeditionPage({ params }: Props) {
           </div>
 
           {expedition.gallery.length > 0 && (
-            <div className="mt-24">
+            <div id="gallery" className="mt-24">
               <h2 className="heading-md mb-8">Gallery</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {expedition.gallery.map((img) => (
-                  <div key={img} className="relative aspect-[4/3] overflow-hidden">
-                    <Image src={img} alt="" fill className="object-cover" sizes="33vw" />
-                  </div>
-                ))}
+              <div className={expedition.gallery.length > 24 ? "masonry-grid" : "grid grid-cols-2 md:grid-cols-3 gap-4"}>
+                {expedition.gallery.map((img) =>
+                  expedition.gallery.length > 24 ? (
+                    <div key={img} className="masonry-item overflow-hidden">
+                      <Image
+                        src={img}
+                        alt=""
+                        width={800}
+                        height={600}
+                        className="w-full h-auto object-cover"
+                        sizes="33vw"
+                      />
+                    </div>
+                  ) : (
+                    <div key={img} className="relative aspect-[4/3] overflow-hidden">
+                      <Image src={img} alt="" fill className="object-cover" sizes="33vw" />
+                    </div>
+                  )
+                )}
               </div>
             </div>
           )}

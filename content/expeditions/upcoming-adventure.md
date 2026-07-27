@@ -6,6 +6,7 @@ description: The next belikeshan expedition is in active planning — route rese
 coverImage: /media/gallery/gallery-52.jpg
 featured: false
 status: upcoming
+era: upcoming
 startDate: 2027
 countries: []
 countryFlags: ["🌍"]

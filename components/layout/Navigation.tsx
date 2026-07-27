@@ -8,6 +8,7 @@ import { profile } from "@/data/profile";
 const links = [
   { label: "About", href: "#about" },
   { label: "Journey", href: "#journeys" },
+  { label: "Past", href: "#past-journeys" },
   { label: "Films", href: "#films" },
   { label: "Social", href: "#social" },
   { label: "Press", href: "#press" },

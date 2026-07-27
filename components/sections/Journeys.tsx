@@ -123,7 +123,9 @@ export default function Journeys({ expeditions }: JourneysProps) {
                     <p className="text-sm text-white/65">
                       {exp.status === "upcoming"
                         ? "Planning underway"
-                        : `${exp.days} days · ${exp.stats.find((s) => s.label === "U.S. States")?.value ?? "25"} states`}
+                        : exp.stats.find((s) => s.label === "U.S. States")
+                          ? `${exp.days} days · ${exp.stats.find((s) => s.label === "U.S. States")?.value} states`
+                          : `${exp.days} days · ${exp.stats.find((s) => s.label === "Distance")?.value ?? `${exp.distance} km`}`}
                     </p>
                   </div>
                 </div>

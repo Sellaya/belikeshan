@@ -6,6 +6,7 @@ description: A 33-day solo motorcycle loop across 25 U.S. states — 10,000 mile
 coverImage: /media/gallery/gallery-49.jpg
 featured: true
 status: completed
+era: recent
 startDate: 2026
 countries: [United States]
 countryFlags: ["🇺🇸", "🇵🇰"]

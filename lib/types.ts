@@ -17,6 +17,7 @@ export interface Expedition {
   heroVideo?: string;
   featured: boolean;
   status: "completed" | "ongoing" | "upcoming";
+  era?: "past" | "recent" | "upcoming";
   startDate: string;
   endDate?: string;
   countries: string[];

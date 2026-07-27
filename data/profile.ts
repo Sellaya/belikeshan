@@ -42,7 +42,7 @@ export const profile: Profile = {
       year: "8+ Years",
       title: "Pakistan on Two Wheels",
       description:
-        "Years of motorcycle travel across Pakistan — remote roads, demanding terrain and the foundation of every expedition that followed.",
+        "Years of motorcycle travel across Pakistan — including the 5,000-km Lahore to Gwadar ride — remote roads, demanding terrain and the foundation of every expedition that followed.",
     },
     {
       year: "2026",
