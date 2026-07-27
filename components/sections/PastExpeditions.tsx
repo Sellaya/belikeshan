@@ -1,14 +1,137 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Calendar, MapPin, Route } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Calendar, MapPin, Route, X, ChevronLeft, ChevronRight } from "lucide-react";
 import type { Expedition } from "@/lib/types";
-import { gwadarFeaturedGallery } from "@/data/gwadar-featured";
 import CoverImage from "@/components/ui/CoverImage";
 
 interface PastExpeditionsProps {
   expeditions: Expedition[];
+}
+
+function pickGalleryPreview(images: string[], count = 30): string[] {
+  if (images.length <= count) return images;
+  const step = images.length / count;
+  return Array.from({ length: count }, (_, i) => images[Math.min(Math.floor(i * step), images.length - 1)]);
+}
+
+function ExpeditionGallery({ images }: { images: string[] }) {
+  const preview = pickGalleryPreview(images);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const close = useCallback(() => setLightboxIndex(null), []);
+  const prev = useCallback(
+    () => setLightboxIndex((i) => (i !== null ? (i - 1 + preview.length) % preview.length : null)),
+    [preview.length]
+  );
+  const next = useCallback(
+    () => setLightboxIndex((i) => (i !== null ? (i + 1) % preview.length : null)),
+    [preview.length]
+  );
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightboxIndex, close, prev, next]);
+
+  return (
+    <>
+      <div className="masonry-grid masonry-grid-wide">
+        {preview.map((src, i) => (
+          <motion.button
+            key={src}
+            type="button"
+            data-cursor
+            className="masonry-item relative w-full overflow-hidden group border border-white/5 bg-secondary"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: (i % 8) * 0.03 }}
+            onClick={() => setLightboxIndex(i)}
+          >
+            <Image
+              src={src}
+              alt=""
+              width={900}
+              height={675}
+              className="w-full h-auto img-contain-center transition-transform duration-700 group-hover:scale-[1.02]"
+              sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+            />
+            <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500" />
+          </motion.button>
+        ))}
+      </div>
+
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            className="lightbox-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <button
+              type="button"
+              data-cursor
+              onClick={close}
+              className="absolute top-6 right-6 p-2 text-off-white/60 hover:text-off-white z-10"
+            >
+              <X size={28} />
+            </button>
+            <button
+              type="button"
+              data-cursor
+              onClick={prev}
+              className="absolute left-4 md:left-8 p-2 text-off-white/60 hover:text-off-white z-10"
+            >
+              <ChevronLeft size={32} />
+            </button>
+            <button
+              type="button"
+              data-cursor
+              onClick={next}
+              className="absolute right-4 md:right-8 p-2 text-off-white/60 hover:text-off-white z-10"
+            >
+              <ChevronRight size={32} />
+            </button>
+            <motion.div
+              key={lightboxIndex}
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              className="relative w-full max-w-6xl mx-4 max-h-[85vh]"
+            >
+              <Image
+                src={preview[lightboxIndex]}
+                alt=""
+                width={1600}
+                height={1200}
+                className="w-full h-auto max-h-[85vh] object-contain mx-auto"
+                sizes="100vw"
+                priority
+              />
+            </motion.div>
+            <p className="absolute bottom-6 left-0 right-0 text-center text-sm text-muted">
+              {lightboxIndex + 1} / {preview.length}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
 }
 
 export default function PastExpeditions({ expeditions }: PastExpeditionsProps) {
@@ -98,53 +221,22 @@ export default function PastExpeditions({ expeditions }: PastExpeditionsProps) {
               </motion.div>
             </div>
 
-            {expedition.slug === "lahore-to-gwadar" && (
+            {expedition.gallery.length > 0 && (
               <div>
-                <div className="flex items-end justify-between gap-4 mb-6">
-                  <div>
-                    <span className="label-text">Journey Gallery</span>
-                    <p className="text-sm text-white/55 mt-2">
-                      Makran Coastal Highway, Karachi, Gwadar, Jiwni — {expedition.gallery.length} moments from the road.
-                    </p>
-                  </div>
-                </div>
+                <ExpeditionGallery images={expedition.gallery} />
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-                  {gwadarFeaturedGallery.map((item, i) => (
-                    <motion.div
-                      key={item.src}
-                      initial={{ opacity: 0, y: 16 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.04 }}
-                      className={`thumb-frame aspect-[4/3] border border-white/8 group ${
-                        i === 0 ? "sm:col-span-2 sm:aspect-[16/9]" : ""
-                      }`}
+                {expedition.gallery.length > 30 && (
+                  <div className="mt-8 text-center">
+                    <Link
+                      href={`/expeditions/${expedition.slug}#gallery`}
+                      data-cursor
+                      className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-white/65 hover:text-white transition-colors"
                     >
-                      <CoverImage
-                        src={item.src}
-                        alt={item.caption}
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                        className="transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/10 to-transparent pointer-events-none" />
-                      <p className="absolute bottom-0 left-0 right-0 p-3 text-xs text-white/90 font-medium z-10">
-                        {item.caption}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <div className="mt-8 text-center">
-                  <Link
-                    href={`/expeditions/${expedition.slug}#gallery`}
-                    data-cursor
-                    className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-white/65 hover:text-white transition-colors"
-                  >
-                    View all {expedition.gallery.length} photos
-                    <ArrowRight size={14} />
-                  </Link>
-                </div>
+                      View all {expedition.gallery.length} photos
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                )}
               </div>
             )}
           </div>
