@@ -46,11 +46,11 @@ export default function Journeys({ expeditions }: JourneysProps) {
           {/* Interactive Map */}
           <div className="lg:col-span-3 relative aspect-[16/10] bg-primary rounded-sm overflow-hidden">
             <svg viewBox="0 0 100 60" className="w-full h-full opacity-20">
-              <ellipse cx="50" cy="30" rx="45" ry="25" fill="none" stroke="#c4a882" strokeWidth="0.2" />
+              <ellipse cx="50" cy="30" rx="45" ry="25" fill="none" stroke="#b8a99a" strokeWidth="0.2" />
               <path
                 d="M15,25 Q30,15 50,20 T85,28 Q75,40 50,45 T15,35 Z"
                 fill="none"
-                stroke="#c4a882"
+                stroke="#b8a99a"
                 strokeWidth="0.15"
                 opacity="0.5"
               />
@@ -121,9 +121,9 @@ export default function Journeys({ expeditions }: JourneysProps) {
                       <span
                         className={cn(
                           "text-[10px] uppercase tracking-wider px-2 py-0.5",
-                          exp.status === "completed" && "text-forest-light bg-forest/20",
-                          exp.status === "upcoming" && "text-orange bg-orange/10",
-                          exp.status === "ongoing" && "text-sand bg-sand/10"
+                          exp.status === "completed" && "text-forest-light bg-forest/30",
+                          exp.status === "upcoming" && "text-orange-light bg-orange/15",
+                          exp.status === "ongoing" && "text-sand-light bg-sand/15"
                         )}
                       >
                         {exp.status}

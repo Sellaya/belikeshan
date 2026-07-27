@@ -24,7 +24,7 @@ export default function LiveMap() {
                 <path
                   d="M20,30 Q40,10 60,25 T90,30"
                   fill="none"
-                  stroke="#c4a882"
+                  stroke="#b8a99a"
                   strokeWidth="0.5"
                   strokeDasharray="2,2"
                 />
@@ -37,13 +37,13 @@ export default function LiveMap() {
               animate={{ scale: [1, 1.3, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <div className="w-4 h-4 rounded-full bg-orange border-2 border-orange/50" />
+              <div className="w-4 h-4 rounded-full bg-orange-light border-2 border-orange/40" />
             </motion.div>
 
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-primary to-transparent">
               <div className="flex items-center gap-2 mb-2">
-                <span className="w-2 h-2 rounded-full bg-orange animate-pulse" />
-                <span className="text-xs uppercase tracking-wider text-orange">Live</span>
+                <span className="w-2 h-2 rounded-full bg-orange-light animate-pulse" />
+                <span className="text-xs uppercase tracking-wider text-orange-light">Live</span>
               </div>
               <h3 className="text-xl font-light">Africa Overland — Planning Phase</h3>
               <p className="text-sm text-muted mt-1">Cape Town → Cairo · 15,000 km</p>
@@ -75,8 +75,8 @@ export default function LiveMap() {
               </motion.div>
             ))}
 
-            <div className="p-5 border border-orange/20 bg-orange/5">
-              <p className="text-xs uppercase tracking-wider text-orange mb-2">
+            <div className="p-5 border border-orange/15 bg-orange/5">
+              <p className="text-xs uppercase tracking-wider text-orange-light mb-2">
                 Coming September 2026
               </p>
               <p className="text-sm text-muted">

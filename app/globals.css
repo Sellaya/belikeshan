@@ -1,17 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0f0f0f;
-  --color-secondary: #171717;
-  --color-sand: #c4a882;
-  --color-sand-light: #d4bc9a;
-  --color-forest: #2d4a3e;
-  --color-forest-light: #3d6b54;
-  --color-orange: #c45d2c;
-  --color-orange-light: #d4734a;
-  --color-off-white: #f5f0eb;
-  --color-muted: #8a8580;
-  --color-border: rgba(255, 255, 255, 0.08);
+  --color-primary: #0a0a0a;
+  --color-secondary: #121212;
+  /* Refined champagne greige — primary accent */
+  --color-sand: #b8a99a;
+  --color-sand-light: #d1c5b8;
+  /* Muted sage — completed / nature */
+  --color-forest: #2f3d38;
+  --color-forest-light: #6b8578;
+  /* Soft copper — live / upcoming highlights */
+  --color-orange: #a67b6a;
+  --color-orange-light: #c49a88;
+  /* Clean neutrals */
+  --color-off-white: #f8f7f5;
+  --color-muted: #94908a;
+  --color-border: rgba(255, 255, 255, 0.07);
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
@@ -42,7 +46,7 @@
   }
 
   ::selection {
-    background-color: rgba(196, 168, 130, 0.3);
+    background-color: rgba(184, 169, 154, 0.25);
     color: var(--color-off-white);
   }
 }
@@ -55,19 +59,19 @@
   .cinematic-gradient {
     background: linear-gradient(
       180deg,
-      rgba(15, 15, 15, 0) 0%,
-      rgba(15, 15, 15, 0.4) 40%,
-      rgba(15, 15, 15, 0.85) 80%,
-      #0f0f0f 100%
+      rgba(10, 10, 10, 0) 0%,
+      rgba(10, 10, 10, 0.4) 40%,
+      rgba(10, 10, 10, 0.85) 80%,
+      #0a0a0a 100%
     );
   }
 
   .hero-overlay {
     background: linear-gradient(
       to bottom,
-      rgba(15, 15, 15, 0.3) 0%,
-      rgba(15, 15, 15, 0.5) 50%,
-      rgba(15, 15, 15, 0.85) 100%
+      rgba(10, 10, 10, 0.3) 0%,
+      rgba(10, 10, 10, 0.5) 50%,
+      rgba(10, 10, 10, 0.85) 100%
     );
   }
 
@@ -185,7 +189,7 @@
     left: 0;
     width: 40px;
     height: 40px;
-    border: 1px solid rgba(245, 240, 235, 0.4);
+    border: 1px solid rgba(248, 247, 245, 0.35);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -197,7 +201,7 @@
   .cursor-ring.hover {
     width: 64px;
     height: 64px;
-    border-color: rgba(245, 240, 235, 0.6);
+    border-color: rgba(248, 247, 245, 0.55);
   }
 }
 
@@ -206,11 +210,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f0f0f;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c4a882;
+  background: #b8a99a;
   border-radius: 2px;
 }
 
@@ -292,7 +296,7 @@
   position: fixed;
   inset: 0;
   z-index: 10000;
-  background: #0f0f0f;
+  background: #0a0a0a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -310,7 +314,7 @@
   position: fixed;
   inset: 0;
   z-index: 9000;
-  background: rgba(15, 15, 15, 0.95);
+  background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
