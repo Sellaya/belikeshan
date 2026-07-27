@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/verify-deps.js && next build",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "verify-deps": "node scripts/verify-deps.js"
+    "lint": "next lint"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",

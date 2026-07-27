@@ -61,9 +61,9 @@ export function getExpeditions(): Expedition[] {
 
   return fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith(".mdx"))
+    .filter((f) => f.endsWith(".md"))
     .map((file) => {
-      const slug = file.replace(/\.mdx$/, "");
+      const slug = file.replace(/\.md$/, "");
       const raw = fs.readFileSync(path.join(dir, file), "utf-8");
       return parseExpedition(slug, raw);
     })
@@ -71,7 +71,7 @@ export function getExpeditions(): Expedition[] {
 }
 
 export function getExpedition(slug: string): (Expedition & { content: string }) | null {
-  const filePath = path.join(contentDir, "expeditions", `${slug}.mdx`);
+  const filePath = path.join(contentDir, "expeditions", `${slug}.md`);
   if (!fs.existsSync(filePath)) return null;
   const raw = fs.readFileSync(filePath, "utf-8");
   return parseExpedition(slug, raw);
@@ -88,9 +88,9 @@ export function getBlogPosts(): BlogPost[] {
 
   return fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith(".mdx"))
+    .filter((f) => f.endsWith(".md"))
     .map((file) => {
-      const slug = file.replace(/\.mdx$/, "");
+      const slug = file.replace(/\.md$/, "");
       const raw = fs.readFileSync(path.join(dir, file), "utf-8");
       return parseBlogPost(slug, raw);
     })
@@ -98,7 +98,7 @@ export function getBlogPosts(): BlogPost[] {
 }
 
 export function getBlogPost(slug: string): (BlogPost & { content: string }) | null {
-  const filePath = path.join(contentDir, "blog", `${slug}.mdx`);
+  const filePath = path.join(contentDir, "blog", `${slug}.md`);
   if (!fs.existsSync(filePath)) return null;
   const raw = fs.readFileSync(filePath, "utf-8");
   return parseBlogPost(slug, raw);

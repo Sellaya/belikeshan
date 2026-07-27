@@ -29,6 +29,6 @@ function renderMarkdown(content: string) {
   });
 }
 
-export default function MDXContent({ content }: { content: string }) {
+export default function MarkdownContent({ content }: { content: string }) {
   return <div className="prose-adventure">{renderMarkdown(content)}</div>;
 }

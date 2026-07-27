@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
-import MDXContent from "@/components/mdx/MDXContent";
+import MarkdownContent from "@/components/content/MarkdownContent";
 import { getBlogPost, getBlogSlugs } from "@/lib/content";
 
 interface Props {
@@ -68,7 +68,7 @@ export default async function BlogPostPage({ params }: Props) {
             {post.date} · {post.readTime}
           </p>
 
-          <MDXContent content={post.content} />
+          <MarkdownContent content={post.content} />
         </article>
       </main>
       <Footer />

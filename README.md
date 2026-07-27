@@ -10,7 +10,7 @@ A premium, cinematic portfolio website for an adventure motorcyclist, filmmaker,
 - **Framer Motion** — scroll animations, transitions
 - **Lenis** — smooth scrolling
 - **GSAP** — available for advanced animations
-- **MDX Content Collections** — expeditions and blog managed via Markdown
+- **Markdown Content Collections** — expeditions and blog managed via Markdown
 
 ## Getting Started
 
@@ -27,14 +27,14 @@ All content lives in the `content/` directory:
 
 ```
 content/
-  expeditions/   # One .mdx file per expedition
-  blog/          # One .mdx file per journal post
+  expeditions/   # One .md file per expedition
+  blog/          # One .md file per journal post
 data/            # Static data (gear, films, media, partners)
 ```
 
 ### Adding a New Expedition
 
-Create `content/expeditions/your-expedition.mdx` with frontmatter:
+Create `content/expeditions/your-expedition.md` with frontmatter:
 
 ```yaml
 ---
@@ -72,7 +72,7 @@ This automatically generates:
 
 ### Adding a Blog Post
 
-Create `content/blog/your-post.mdx`:
+Create `content/blog/your-post.md`:
 
 ```yaml
 ---
@@ -96,8 +96,8 @@ components/
   sections/             # Homepage sections
   layout/               # Navigation, Footer, SmoothScroll
   ui/                   # Cursor, Loader, ScrollProgress
-  mdx/                  # MDX content renderer
-content/                # MDX content collections
+  content/              # Markdown content renderer
+content/                # Markdown content collections
 data/                   # Static data files
 lib/                    # Utils, types, content loader
 ```

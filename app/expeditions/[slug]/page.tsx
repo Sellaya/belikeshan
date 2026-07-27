@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Play, MapPin, Calendar, Route } from "lucide-react";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
-import MDXContent from "@/components/mdx/MDXContent";
+import MarkdownContent from "@/components/content/MarkdownContent";
 import { getExpedition, getExpeditionSlugs } from "@/lib/content";
 import { formatNumber } from "@/lib/utils";
 
@@ -76,7 +76,7 @@ export default async function ExpeditionPage({ params }: Props) {
 
           <div className="grid lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2">
-              <MDXContent content={expedition.content} />
+              <MarkdownContent content={expedition.content} />
             </div>
             <aside className="space-y-8">
               <div className="p-6 border border-white/5">
