@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Play, X } from "lucide-react";
-import { films } from "@/data/films";
+import { films, youtubeChannel } from "@/data/films";
 
 export default function Filmmaking() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
@@ -19,7 +20,10 @@ export default function Filmmaking() {
           className="mb-16 md:mb-24"
         >
           <span className="label-text">05 — Filmmaking</span>
-          <h2 className="heading-lg mt-6">Documentaries from the road.</h2>
+          <h2 className="heading-lg mt-6">Documentaries from the USA Loop.</h2>
+          <p className="body-lg mt-4 max-w-xl">
+            Raw, cinematic episodes from the road — thunderstorms, desert heat, and the full journey on Be Like Shan.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -63,6 +67,19 @@ export default function Filmmaking() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <a
+            href={youtubeChannel}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor
+            className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-muted hover:text-sand transition-colors"
+          >
+            View all on YouTube
+            <Play size={14} />
+          </a>
         </div>
       </div>
 

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Instagram, Youtube, Mail, MapPin, Send } from "lucide-react";
+import { Instagram, Youtube, Mail, MapPin, Send, Facebook, Coffee } from "lucide-react";
 import { profile } from "@/data/profile";
 
 export default function Contact() {
@@ -18,10 +18,7 @@ export default function Contact() {
     <section id="contact" className="relative section-padding overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&q=80)",
-        }}
+        style={{ backgroundImage: "url(/media/press/thunderstorms-day7.jpg)" }}
       />
       <div className="absolute inset-0 bg-primary/85" />
 
@@ -33,10 +30,9 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <span className="label-text">11 — Contact</span>
-            <h2 className="heading-lg mt-6 mb-6">Let&apos;s create something extraordinary.</h2>
+            <h2 className="heading-lg mt-6 mb-6">Let&apos;s tell the next story together.</h2>
             <p className="body-lg mb-10">
-              Whether it&apos;s a collaboration, sponsorship, or just a conversation about the
-              road — I&apos;d love to hear from you.
+              Media enquiries, collaborations, sponsorship conversations, or simply a message from the road — I&apos;d love to hear from you.
             </p>
 
             <div className="space-y-4">
@@ -52,26 +48,27 @@ export default function Contact() {
                 <MapPin size={18} />
                 <span>{profile.location}</span>
               </div>
+              <a
+                href={profile.social.support}
+                data-cursor
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-muted hover:text-sand transition-colors"
+              >
+                <Coffee size={18} />
+                <span>Support future expeditions</span>
+              </a>
             </div>
 
             <div className="flex gap-6 mt-10">
-              <a
-                href={profile.social.instagram}
-                data-cursor
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted hover:text-sand transition-colors"
-              >
+              <a href={profile.social.instagram} data-cursor target="_blank" rel="noopener noreferrer" className="text-muted hover:text-sand transition-colors">
                 <Instagram size={22} />
               </a>
-              <a
-                href={profile.social.youtube}
-                data-cursor
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted hover:text-sand transition-colors"
-              >
+              <a href={profile.social.youtube} data-cursor target="_blank" rel="noopener noreferrer" className="text-muted hover:text-sand transition-colors">
                 <Youtube size={22} />
+              </a>
+              <a href={profile.social.facebook} data-cursor target="_blank" rel="noopener noreferrer" className="text-muted hover:text-sand transition-colors">
+                <Facebook size={22} />
               </a>
             </div>
           </motion.div>
@@ -92,49 +89,18 @@ export default function Contact() {
             ) : (
               <>
                 <div>
-                  <label htmlFor="name" className="label-text block mb-2">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    required
-                    value={formState.name}
-                    onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                    className="w-full bg-transparent border border-white/10 px-4 py-3 text-off-white focus:border-sand/50 focus:outline-none transition-colors"
-                  />
+                  <label htmlFor="name" className="label-text block mb-2">Name</label>
+                  <input id="name" type="text" required value={formState.name} onChange={(e) => setFormState({ ...formState, name: e.target.value })} className="w-full bg-transparent border border-white/10 px-4 py-3 text-off-white focus:border-sand/50 focus:outline-none transition-colors" />
                 </div>
                 <div>
-                  <label htmlFor="email" className="label-text block mb-2">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    required
-                    value={formState.email}
-                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                    className="w-full bg-transparent border border-white/10 px-4 py-3 text-off-white focus:border-sand/50 focus:outline-none transition-colors"
-                  />
+                  <label htmlFor="email" className="label-text block mb-2">Email</label>
+                  <input id="email" type="email" required value={formState.email} onChange={(e) => setFormState({ ...formState, email: e.target.value })} className="w-full bg-transparent border border-white/10 px-4 py-3 text-off-white focus:border-sand/50 focus:outline-none transition-colors" />
                 </div>
                 <div>
-                  <label htmlFor="message" className="label-text block mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    required
-                    rows={5}
-                    value={formState.message}
-                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    className="w-full bg-transparent border border-white/10 px-4 py-3 text-off-white focus:border-sand/50 focus:outline-none transition-colors resize-none"
-                  />
+                  <label htmlFor="message" className="label-text block mb-2">Message</label>
+                  <textarea id="message" required rows={5} value={formState.message} onChange={(e) => setFormState({ ...formState, message: e.target.value })} className="w-full bg-transparent border border-white/10 px-4 py-3 text-off-white focus:border-sand/50 focus:outline-none transition-colors resize-none" />
                 </div>
-                <button
-                  type="submit"
-                  data-cursor
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-sand text-primary text-sm uppercase tracking-wider font-medium hover:bg-sand-light transition-all hover:-translate-y-0.5"
-                >
+                <button type="submit" data-cursor className="inline-flex items-center gap-3 px-8 py-4 bg-sand text-primary text-sm uppercase tracking-wider font-medium hover:bg-sand-light transition-all hover:-translate-y-0.5">
                   Send Message
                   <Send size={16} />
                 </button>

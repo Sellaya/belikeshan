@@ -14,28 +14,29 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Belikeshan — Adventure Rider, Filmmaker & Storyteller",
-    template: "%s | Belikeshan",
+    default: "Shan-e-Ali | Pakistani Adventure Rider & Filmmaker",
+    template: "%s | Be Like Shan",
   },
   description:
-    "Adventure motorcyclist, travel documentary filmmaker, and photographer. Solo motorcycle expeditions from Pakistan to the world. Explore beyond maps.",
+    "Meet Shan-e-Ali, the Pakistani adventure rider behind Be Like Shan. Explore his 10,000-mile solo motorcycle loop across 25 U.S. states, films, photography and stories from the road.",
   keywords: [
-    "Adventure Rider",
-    "Motorcycle Expeditions",
-    "Travel Documentary",
-    "Adventure Photography",
-    "Travel Filmmaker",
-    "Motorcycle Travel",
-    "Overland Adventure",
-    "Pakistan Adventure Rider",
-    "Solo Motorcycle Expedition",
+    "Shan-e-Ali adventure rider",
+    "Be Like Shan",
+    "Pakistani adventure motorcyclist",
+    "USA motorcycle loop",
+    "solo motorcycle expedition USA",
+    "Pakistani passport motorcycle journey",
+    "Suzuki DR650 adventure rider",
+    "motorcycle travel filmmaker",
+    "Toronto adventure rider",
   ],
   openGraph: {
-    title: "Belikeshan — Explore Beyond Maps",
+    title: "Shan-e-Ali — Explore Beyond Maps",
     description:
-      "Adventure motorcyclist, filmmaker, and storyteller. Documentary expeditions from Pakistan to the world.",
+      "Pakistani adventure rider, filmmaker and storyteller. 33 days, 10,000 miles, 25 U.S. states on a Suzuki DR650.",
     type: "website",
     locale: "en_US",
+    images: ["/media/press/usa-loop-trailer.jpg"],
   },
   robots: {
     index: true,

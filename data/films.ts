@@ -2,47 +2,25 @@ import type { Film } from "@/lib/types";
 
 export const films: Film[] = [
   {
-    id: "silk-road-documentary",
-    title: "Silk Road Revival",
+    id: "usa-loop-trailer",
+    title: "USA Loop Journey Trailer",
     description:
-      "A solo motorcycle journey from Pakistan to Turkey — 12,000 kilometers through ancient trade routes, modern borders, and timeless landscapes.",
-    youtubeId: "dQw4w9WgXcQ",
-    thumbnail:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
-    duration: "47 min",
-    year: "2023",
+      "The official trailer for the USA Loop — a 33-day, 10,000-mile solo motorcycle expedition across 25 U.S. states on a Suzuki DR650, carrying the Pakistani flag.",
+    youtubeId: "JSuWrvJGpXA",
+    thumbnail: "/media/press/usa-loop-trailer.jpg",
+    duration: "Trailer",
+    year: "2026",
   },
   {
-    id: "himalayan-solitude",
-    title: "Himalayan Solitude",
+    id: "three-thunderstorms",
+    title: "I Survived 3 Thunderstorms in 1 Day | USA Loop Day 7",
     description:
-      "Winter crossing of the Karakoram. One rider, one road, infinite silence.",
-    youtubeId: "dQw4w9WgXcQ",
-    thumbnail:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80",
-    duration: "32 min",
-    year: "2022",
-  },
-  {
-    id: "central-asia-horizons",
-    title: "Central Asia Horizons",
-    description:
-      "Through the Stans — Uzbekistan, Tajikistan, Kyrgyzstan. A visual poem of the Silk Road's living heart.",
-    youtubeId: "dQw4w9WgXcQ",
-    thumbnail:
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&q=80",
-    duration: "55 min",
-    year: "2021",
-  },
-  {
-    id: "desert-lines",
-    title: "Desert Lines",
-    description:
-      "Riding the Thar and beyond — where the horizon is the only destination.",
-    youtubeId: "dQw4w9WgXcQ",
-    thumbnail:
-      "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1200&q=80",
-    duration: "28 min",
-    year: "2020",
+      "Riding through three severe thunderstorms in a single day — raw, unfiltered documentary from the middle of the USA Loop.",
+    youtubeId: "nBG01dbLDWA",
+    thumbnail: "/media/press/thunderstorms-day7.jpg",
+    duration: "Episode",
+    year: "2026",
   },
 ];
+
+export const youtubeChannel = "https://www.youtube.com/channel/UC174LS2fGBFR1vOcplMkjyg";

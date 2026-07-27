@@ -1,35 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { profile } from "@/data/profile";
 
 export default function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover scale-105"
-        poster="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=1920&q=80"
-      >
-        <source
-          src="https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4"
-          type="video/mp4"
-        />
-      </video>
-
+      <div
+        className="absolute inset-0 bg-cover bg-center scale-105"
+        style={{ backgroundImage: "url(/media/press/usa-loop-trailer.jpg)" }}
+      />
       <div className="absolute inset-0 hero-overlay" />
 
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
         <motion.p
-          className="label-text mb-8"
+          className="label-text mb-4 text-sand"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.4, duration: 0.8 }}
         >
-          Adventure · Documentary · Exploration
+          {profile.brand} · {profile.philosophy}
         </motion.p>
 
         <motion.h1
@@ -41,15 +32,24 @@ export default function Hero() {
           {profile.tagline}
         </motion.h1>
 
+        <motion.p
+          className="mt-6 max-w-2xl text-base md:text-lg text-muted font-light leading-relaxed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.8, duration: 0.8 }}
+        >
+          {profile.subtitle}
+        </motion.p>
+
         <motion.div
-          className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
+          className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3, duration: 0.8 }}
         >
           {profile.roles.map((role: string, i: number) => (
             <span key={role} className="flex items-center gap-6">
-              <span className="text-sm md:text-base text-muted font-light tracking-wide">
+              <span className="text-sm md:text-base text-off-white/80 font-light tracking-wide">
                 {role}
               </span>
               {i < profile.roles.length - 1 && (
@@ -57,6 +57,28 @@ export default function Hero() {
               )}
             </span>
           ))}
+        </motion.div>
+
+        <motion.div
+          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 3.2, duration: 0.8 }}
+        >
+          <Link
+            href="/expeditions/usa-loop"
+            data-cursor
+            className="px-8 py-4 bg-sand text-primary text-sm uppercase tracking-wider font-medium hover:bg-sand-light transition-all hover:-translate-y-0.5"
+          >
+            Explore the USA Loop
+          </Link>
+          <Link
+            href="#films"
+            data-cursor
+            className="px-8 py-4 border border-off-white/20 text-sm uppercase tracking-wider hover:border-sand hover:text-sand transition-all"
+          >
+            Watch the Journey
+          </Link>
         </motion.div>
       </div>
 

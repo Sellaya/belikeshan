@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { label: "About", href: "#about" },
-  { label: "Journeys", href: "#journeys" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "Journey", href: "#journeys" },
   { label: "Films", href: "#films" },
+  { label: "Press", href: "#press" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -48,7 +48,7 @@ export default function Navigation() {
             }}
             className="text-sm uppercase tracking-[0.25em] font-medium text-off-white hover:text-sand transition-colors"
           >
-            Belikeshan
+            Be Like Shan
           </a>
 
           <ul className="hidden md:flex items-center gap-10">
@@ -74,24 +74,9 @@ export default function Navigation() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            <span
-              className={cn(
-                "block w-6 h-[1px] bg-off-white transition-transform",
-                menuOpen && "rotate-45 translate-y-[3.5px]"
-              )}
-            />
-            <span
-              className={cn(
-                "block w-6 h-[1px] bg-off-white transition-opacity",
-                menuOpen && "opacity-0"
-              )}
-            />
-            <span
-              className={cn(
-                "block w-6 h-[1px] bg-off-white transition-transform",
-                menuOpen && "-rotate-45 -translate-y-[3.5px]"
-              )}
-            />
+            <span className={cn("block w-6 h-[1px] bg-off-white transition-transform", menuOpen && "rotate-45 translate-y-[3.5px]")} />
+            <span className={cn("block w-6 h-[1px] bg-off-white transition-opacity", menuOpen && "opacity-0")} />
+            <span className={cn("block w-6 h-[1px] bg-off-white transition-transform", menuOpen && "-rotate-45 -translate-y-[3.5px]")} />
           </button>
         </nav>
       </motion.header>
@@ -101,7 +86,6 @@ export default function Navigation() {
           className="fixed inset-0 z-40 bg-primary/98 backdrop-blur-xl flex items-center justify-center md:hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
         >
           <ul className="flex flex-col items-center gap-8">
             {links.map((link) => (

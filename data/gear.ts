@@ -3,115 +3,81 @@ import type { GearItem } from "@/lib/types";
 export const gear: GearItem[] = [
   {
     id: "motorcycle",
-    name: "BMW R 1250 GS Adventure",
+    name: "Suzuki DR650",
     category: "motorcycle",
-    brand: "BMW Motorrad",
-    image:
-      "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=800&q=80",
+    brand: "Suzuki",
+    image: "/media/press/usa-loop-trailer.jpg",
     description:
-      "The ultimate long-distance adventure machine. Proven across 40,000+ km of the world's most demanding terrain.",
+      "The machine that carried Shan-e-Ali 10,000 miles across 25 U.S. states — through snow, desert heat, thunderstorms and a crash near Monument Valley. Simple, tough, and proven.",
     specs: [
-      { label: "Engine", value: "1,254 cc Boxer Twin" },
-      { label: "Power", value: "136 hp @ 7,750 rpm" },
-      { label: "Fuel Capacity", value: "30L + 8L auxiliary" },
-      { label: "Weight", value: "268 kg (ready to ride)" },
-      { label: "Suspension", value: "Telelever / EVO Paralever" },
+      { label: "Type", value: "Dual Sport / Adventure" },
+      { label: "Engine", value: "644 cc Single-cylinder" },
+      { label: "Expedition", value: "USA Loop 2026" },
+      { label: "Distance", value: "10,000 miles / 16,000 km" },
+      { label: "Duration", value: "33 days solo" },
     ],
   },
   {
     id: "helmet",
-    name: "Shoei Hornet X2",
+    name: "Adventure Helmet",
     category: "helmet",
-    brand: "Shoei",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-    description:
-      "Dual-sport helmet built for every climate — from desert heat to alpine cold.",
+    brand: "Expedition Setup",
+    image: "/media/press/thunderstorms-day7.jpg",
+    description: "Trusted through Yellowstone snow, Arizona heat and three thunderstorms in one day.",
     specs: [
-      { label: "Type", value: "Dual Sport / Adventure" },
-      { label: "Weight", value: "1,650g" },
-      { label: "Visor", value: "CNS-2 Pinlock ready" },
-      { label: "Ventilation", value: "4 intake, 2 exhaust" },
+      { label: "Use", value: "Long-distance solo expedition" },
+      { label: "Conditions", value: "Snow to 45°C desert heat" },
     ],
   },
   {
     id: "camera",
-    name: "Sony FX3",
+    name: "Documentary Camera Kit",
     category: "camera",
-    brand: "Sony",
-    image:
-      "https://images.unsplash.com/photo-1516035069371-29a1ac064392?w=800&q=80",
+    brand: "Be Like Shan",
+    image: "/media/press/press-08.jpg",
     description:
-      "Cinema line camera in a compact body. Every frame of the documentaries shot on this.",
+      "Every frame of the USA Loop documentary — films, vlogs and photography from the road.",
     specs: [
-      { label: "Sensor", value: "Full-frame 12.1MP" },
-      { label: "Video", value: "4K 120fps / 10-bit 4:2:2" },
-      { label: "ISO", value: "80–409,600" },
-      { label: "Stabilization", value: "Active Mode IBIS" },
-    ],
-  },
-  {
-    id: "drone",
-    name: "DJI Mavic 3 Pro",
-    category: "drone",
-    brand: "DJI",
-    image:
-      "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&q=80",
-    description:
-      "Triple-camera system for cinematic aerial perspectives across impossible landscapes.",
-    specs: [
-      { label: "Camera", value: "Hasselblad 4/3 CMOS 20MP" },
-      { label: "Flight Time", value: "43 minutes" },
-      { label: "Range", value: "15 km O3+ transmission" },
-      { label: "Max Speed", value: "21 m/s" },
+      { label: "Output", value: "YouTube documentaries & vlogs" },
+      { label: "Channel", value: "Be Like Shan" },
     ],
   },
   {
     id: "camping",
     name: "Expedition Camp Kit",
     category: "camping",
-    brand: "Custom Setup",
-    image:
-      "https://images.unsplash.com/photo-1504851149312-7a075b496cc7?w=800&q=80",
+    brand: "Solo Overland Setup",
+    image: "/media/press/press-03.jpg",
     description:
-      "Ultralight camping system designed for solo motorcycle overlanding in any climate.",
+      "Including the soaked overnight camp after rain and snow in Yellowstone — when the tent became part of the story.",
     specs: [
-      { label: "Tent", value: "MSR Hubba NX 1-person" },
-      { label: "Sleeping Bag", value: "-15°C down rated" },
-      { label: "Stove", value: "Jetboil Flash" },
-      { label: "Total Weight", value: "3.2 kg complete kit" },
+      { label: "Use", value: "Solo motorcycle camping" },
+      { label: "Tested", value: "Yellowstone snow & desert heat" },
     ],
   },
   {
     id: "luggage",
-    name: "Touratech Zega Pro",
+    name: "Expedition Luggage",
     category: "luggage",
-    brand: "Touratech",
-    image:
-      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80",
-    description:
-      "Bombproof aluminum panniers and top case system. Survived everything the road threw at them.",
+    brand: "Touring Setup",
+    image: "/media/press/press-04.jpg",
+    description: "Everything needed for 33 days and 25 states — carried solo across the full USA loop.",
     specs: [
-      { label: "Material", value: "2mm aluminum" },
-      { label: "Capacity", value: "31L per side + 38L top" },
-      { label: "Weight", value: "11.4 kg (set)" },
-      { label: "Mount", value: "Quick-release steel" },
+      { label: "Duration", value: "33-day self-supported loop" },
+      { label: "Route", value: "25 U.S. states" },
     ],
   },
   {
-    id: "navigation",
-    name: "Garmin zumo XT2",
+    id: "flag",
+    name: "Pakistani Flag",
     category: "navigation",
-    brand: "Garmin",
-    image:
-      "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&q=80",
+    brand: "Symbol of the Journey",
+    image: "/media/press/current-pakistan.jpg",
     description:
-      "Rugged motorcycle GPS with worldwide mapping. The only co-pilot on solo expeditions.",
+      "Worn on the jacket across 10,000 miles. In small American towns, the flag became an invitation to talk, learn and leave a positive impression of Pakistan.",
     specs: [
-      { label: "Display", value: '6" multitouch, sunlight readable' },
-      { label: "Maps", value: "Worldwide preloaded" },
-      { label: "Battery", value: "Up to 6 hours" },
-      { label: "Connectivity", value: "Bluetooth, WiFi, LiveTrack" },
+      { label: "Carried", value: "Full USA Loop expedition" },
+      { label: "Meaning", value: "Cultural exchange on two wheels" },
     ],
   },
 ];

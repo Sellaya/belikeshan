@@ -37,12 +37,14 @@ export default function WhoIAm() {
               <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-sand/20 hidden md:block" />
+            <p className="mt-6 label-text text-sand">{profile.brand} · {profile.handle}</p>
           </motion.div>
 
           <motion.div style={{ y: textY }}>
-            <h2 className="heading-lg mb-8 text-balance">
-              Stories written on asphalt and altitude.
+            <h2 className="heading-lg mb-4 text-balance">
+              Stories written on asphalt and human connection.
             </h2>
+            <p className="text-sand text-lg mb-8 font-light italic">{profile.philosophy}</p>
             <p className="body-lg mb-12">{profile.bio}</p>
 
             <div className="relative pl-8 border-l border-sand/20">
@@ -57,12 +59,8 @@ export default function WhoIAm() {
                 >
                   <div className="absolute -left-8 top-1 w-4 h-4 rounded-full border border-sand bg-primary" />
                   <span className="label-text text-sand">{item.year}</span>
-                  <h3 className="text-xl font-light text-off-white mt-2 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted font-light leading-relaxed">
-                    {item.description}
-                  </p>
+                  <h3 className="text-xl font-light text-off-white mt-2 mb-2">{item.title}</h3>
+                  <p className="text-muted font-light leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
             </div>

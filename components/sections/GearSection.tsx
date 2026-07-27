@@ -11,10 +11,9 @@ const categories = [
   { id: "motorcycle", label: "Motorcycle" },
   { id: "helmet", label: "Helmet" },
   { id: "camera", label: "Camera" },
-  { id: "drone", label: "Drone" },
   { id: "camping", label: "Camping" },
   { id: "luggage", label: "Luggage" },
-  { id: "navigation", label: "Navigation" },
+  { id: "navigation", label: "The Flag" },
 ] as const;
 
 export default function GearSection() {
@@ -30,10 +29,10 @@ export default function GearSection() {
           className="mb-16 md:mb-24"
         >
           <span className="label-text">08 — Gear</span>
-          <h2 className="heading-lg mt-6">The setup that goes the distance.</h2>
+          <h2 className="heading-lg mt-6">What carried the USA Loop.</h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {categories.map((cat, i) => {
             const item = gear.find((g) => g.category === cat.id);
             if (!item) return null;

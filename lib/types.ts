@@ -60,10 +60,15 @@ export interface MediaItem {
   id: string;
   title: string;
   publication: string;
-  type: "article" | "interview" | "tv" | "award";
+  type: "article" | "interview" | "tv" | "social";
+  category: "editorial" | "television" | "social";
+  platform: "web" | "instagram" | "facebook" | "x";
   date: string;
   link: string;
   excerpt: string;
+  thumbnail?: string;
+  featured?: boolean;
+  author?: string;
 }
 
 export interface Partner {
@@ -81,16 +86,24 @@ export interface Testimonial {
 
 export interface Profile {
   name: string;
+  brand: string;
+  handle: string;
   tagline: string;
+  subtitle: string;
   roles: string[];
   bio: string;
+  shortBio: string;
   portrait: string;
   email: string;
   location: string;
+  philosophy: string;
   social: {
     instagram: string;
     youtube: string;
+    facebook: string;
+    support: string;
     email: string;
   };
+  achievements: { label: string; value: string }[];
   timeline: { year: string; title: string; description: string }[];
 }

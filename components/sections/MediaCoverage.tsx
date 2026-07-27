@@ -1,19 +1,117 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { ExternalLink, Award, Tv, Mic, FileText } from "lucide-react";
-import { media, pressLogos } from "@/data/media";
+import { ExternalLink, Mic, Tv, FileText, Instagram, Facebook } from "lucide-react";
+import {
+  featuredStory,
+  televisionInterviews,
+  socialPublications,
+  pressLogos,
+} from "@/data/media";
+import type { MediaItem } from "@/lib/types";
 
-const typeIcons = {
-  article: FileText,
-  interview: Mic,
-  tv: Tv,
-  award: Award,
+const platformIcons = {
+  web: FileText,
+  instagram: Instagram,
+  facebook: Facebook,
+  x: ExternalLink,
 };
+
+function MediaCard({ item, large = false }: { item: MediaItem; large?: boolean }) {
+  const PlatformIcon = platformIcons[item.platform] || ExternalLink;
+
+  return (
+    <motion.a
+      href={item.link}
+      data-cursor
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group block overflow-hidden border border-white/5 hover:border-sand/20 transition-all duration-500 hover:bg-white/[0.02] ${
+        large ? "md:grid md:grid-cols-2" : ""
+      }`}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      {item.thumbnail && (
+        <div className={`relative overflow-hidden ${large ? "aspect-[16/10] md:aspect-auto md:min-h-full" : "aspect-[16/10]"}`}>
+          <Image
+            src={item.thumbnail}
+            alt={item.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes={large ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
+          {item.featured && (
+            <span className="absolute top-4 left-4 label-text text-[10px] bg-sand text-primary px-3 py-1">
+              Featured Story
+            </span>
+          )}
+        </div>
+      )}
+
+      <div className={`p-6 ${large ? "md:p-10 flex flex-col justify-center" : ""}`}>
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <PlatformIcon size={14} className="text-sand" />
+            <span className="label-text text-[10px]">{item.publication}</span>
+          </div>
+          <ExternalLink
+            size={14}
+            className="text-muted opacity-0 group-hover:opacity-100 transition-opacity"
+          />
+        </div>
+        <h3
+          className={`font-light text-off-white group-hover:text-sand transition-colors ${
+            large ? "text-2xl md:text-3xl leading-snug" : "text-lg"
+          }`}
+        >
+          {item.title}
+        </h3>
+        {item.author && (
+          <p className="text-xs text-muted mt-2">By {item.author}</p>
+        )}
+        <p className={`text-muted mt-3 ${large ? "text-base leading-relaxed" : "text-sm line-clamp-2"}`}>
+          {item.excerpt}
+        </p>
+        <span className="text-xs text-muted mt-4 block">{item.date}</span>
+      </div>
+    </motion.a>
+  );
+}
+
+function SectionBlock({
+  title,
+  icon: Icon,
+  items,
+}: {
+  title: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  items: MediaItem[];
+}) {
+  return (
+    <div className="mb-20 last:mb-0">
+      <div className="flex items-center gap-3 mb-8">
+        <Icon size={18} className="text-sand" />
+        <h3 className="heading-md text-2xl md:text-3xl">{title}</h3>
+        <span className="label-text text-[10px]">{items.length} features</span>
+      </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {items.map((item) => (
+          <MediaCard key={item.id} item={item} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function MediaCoverage() {
   return (
-    <section className="section-padding bg-primary">
+    <section id="press" className="section-padding bg-primary">
       <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -21,15 +119,18 @@ export default function MediaCoverage() {
           viewport={{ once: true }}
           className="mb-16 md:mb-24"
         >
-          <span className="label-text">06 — Media Coverage</span>
-          <h2 className="heading-lg mt-6">As seen in.</h2>
+          <span className="label-text">06 — Press & Interviews</span>
+          <h2 className="heading-lg mt-6">The world took notice.</h2>
+          <p className="body-lg mt-6 max-w-2xl">
+            From Business Recorder to television broadcasts and social publications across Pakistan — the USA Loop became a story carried far beyond the road.
+          </p>
         </motion.div>
 
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 mb-20 opacity-40">
+        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 mb-20 opacity-50">
           {pressLogos.map((logo, i) => (
             <motion.span
               key={logo}
-              className="text-xs md:text-sm uppercase tracking-[0.2em] font-medium text-muted"
+              className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-muted"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -40,39 +141,30 @@ export default function MediaCoverage() {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {media.map((item, i) => {
-            const Icon = typeIcons[item.type];
-            return (
-              <motion.a
-                key={item.id}
-                href={item.link}
-                data-cursor
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block p-6 border border-white/5 hover:border-sand/20 transition-all duration-500 hover:bg-white/[0.02]"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <Icon size={18} className="text-sand" />
-                  <ExternalLink
-                    size={14}
-                    className="text-muted opacity-0 group-hover:opacity-100 transition-opacity"
-                  />
-                </div>
-                <span className="label-text text-[10px]">{item.publication}</span>
-                <h3 className="text-lg font-light text-off-white mt-2 mb-3 group-hover:text-sand transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-muted line-clamp-2">{item.excerpt}</p>
-                <span className="text-xs text-muted mt-4 block">{item.date}</span>
-              </motion.a>
-            );
-          })}
+        <div className="mb-20">
+          <MediaCard item={featuredStory} large />
         </div>
+
+        <SectionBlock title="Television Interviews" icon={Tv} items={televisionInterviews} />
+        <SectionBlock title="Social Publications" icon={Mic} items={socialPublications} />
+
+        <motion.div
+          className="text-center mt-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <Link
+            href="https://www.brecorder.com/news/40431267"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor
+            className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-sand hover:text-sand-light transition-colors"
+          >
+            Read the lead feature on Business Recorder
+            <ExternalLink size={14} />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

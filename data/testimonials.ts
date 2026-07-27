@@ -2,24 +2,24 @@ import type { Testimonial } from "@/lib/types";
 
 export const testimonials: Testimonial[] = [
   {
-    id: "1",
+    id: "virginia",
     quote:
-      "Belikeshan doesn't just ride motorcycles — he captures the soul of every landscape he crosses. His work redefines adventure storytelling.",
-    author: "Sarah Mitchell",
-    role: "Editor, Adventure Motorcycle Magazine",
+      "In Hardy, Virginia, a couple I had never met opened their home — their 100-year-old wooden house, their third-generation dining table, and conversations about Pakistani culture, American life and motorcycle travel. They were the first Pakistanis they had ever hosted. That is what this journey was really about.",
+    author: "Hardy, Virginia",
+    role: "Human connection on the USA Loop",
   },
   {
-    id: "2",
+    id: "small-towns",
     quote:
-      "The Silk Road documentary is the most honest portrayal of solo overland travel I've seen in a decade. Raw, beautiful, unforgettable.",
-    author: "James Chen",
-    role: "Producer, Discovery Channel",
+      "In small American towns and rural communities, people frequently asked about the Pakistani flag on my jacket. Some said I was the first Pakistani they had ever met. These encounters allowed both sides to learn about one another beyond politics and stereotypes.",
+    author: "Across 25 States",
+    role: "Cultural exchange on the road",
   },
   {
-    id: "3",
+    id: "business-recorder",
     quote:
-      "Working with Belikeshan on the BMW expedition film was extraordinary. His eye for cinematic composition is matched only by his courage on the road.",
-    author: "Marcus Weber",
-    role: "Creative Director, BMW Motorrad",
+      "16,000km, one Pakistani flag — a solo journey that crossed snow, desert heat, thunderstorms and a crash, yet found its defining story in the people along the way.",
+    author: "Aisha Mahmood",
+    role: "Business Recorder",
   },
 ];

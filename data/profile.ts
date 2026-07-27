@@ -1,49 +1,59 @@
 import type { Profile } from "@/lib/types";
 
 export const profile: Profile = {
-  name: "Belikeshan",
+  name: "Shan-e-Ali",
+  brand: "Be Like Shan",
+  handle: "@belikeshan",
   tagline: "Explore Beyond Maps.",
-  roles: ["Adventure Rider", "Filmmaker", "Storyteller", "Photographer"],
-  bio: "From the mountains of Pakistan to the far corners of the world, I ride to tell stories that maps cannot. Every journey is a documentary. Every mile, a chapter. I believe the road reveals what we carry inside — and the world opens when we dare to go further.",
-  portrait:
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-  email: "hello@belikeshan.com",
-  location: "Karachi, Pakistan — Currently on the road",
+  subtitle:
+    "Shan-e-Ali documents long-distance motorcycle expeditions, difficult roads and the people who transform a journey.",
+  roles: ["Adventure Rider", "Filmmaker", "Storyteller"],
+  bio: "For Shan-e-Ali, life is motion. Originally from Lahore and now based in Toronto, he is a Pakistani adventure motorcyclist, filmmaker and storyteller behind Be Like Shan. After years of motorcycle travel across Pakistan, he completed his most ambitious expedition: a 33-day solo loop across 25 U.S. states, covering 10,000 miles on a Suzuki DR650 while travelling on a Pakistani passport and carrying Pakistan's flag. The ride crossed snow, desert heat, thunderstorms, isolation and a crash — but its defining story was human connection.",
+  shortBio:
+    "Toronto-based Pakistani adventure motorcyclist, filmmaker and storyteller originally from Lahore. Through Be Like Shan, he documents remote roads, demanding expeditions and meaningful encounters with people across cultures.",
+  portrait: "/media/press/usa-loop-trailer.jpg",
+  email: "belikeshan@gmail.com",
+  location: "Toronto, Canada · Originally from Lahore, Pakistan",
+  philosophy: "Life is Motion.",
   social: {
-    instagram: "https://instagram.com",
-    youtube: "https://youtube.com",
-    email: "mailto:hello@belikeshan.com",
+    instagram: "https://www.instagram.com/belikeshan/",
+    youtube: "https://www.youtube.com/channel/UC174LS2fGBFR1vOcplMkjyg",
+    facebook: "https://www.facebook.com/belikeshan/",
+    support: "https://buymeacoffee.com/belikeshan",
+    email: "mailto:belikeshan@gmail.com",
   },
+  achievements: [
+    { label: "U.S. States", value: "25" },
+    { label: "Miles", value: "10,000" },
+    { label: "Kilometres", value: "16,000" },
+    { label: "Days", value: "33" },
+    { label: "Motorcycle", value: "Suzuki DR650" },
+    { label: "Carried", value: "🇵🇰 One Flag" },
+  ],
   timeline: [
     {
-      year: "2018",
-      title: "First Solo Ride",
+      year: "Origins",
+      title: "Lahore, Pakistan",
       description:
-        "Crossed the Karakoram Highway alone — 800km of raw mountain road that changed everything.",
+        "Born and raised in Lahore. The road became a way of understanding the world long before the cameras came.",
     },
     {
-      year: "2019",
-      title: "The Documentary Begins",
+      year: "8+ Years",
+      title: "Pakistan on Two Wheels",
       description:
-        "Picked up a camera. Started filming the road. Discovered that riding and storytelling were the same thing.",
+        "Approximately eight years of motorcycle travel across Pakistan — remote roads, demanding terrain and the foundation of everything that followed.",
     },
     {
-      year: "2021",
-      title: "Central Asia Expedition",
+      year: "2026",
+      title: "USA Loop Expedition",
       description:
-        "45 days through Uzbekistan, Tajikistan, and Kyrgyzstan. First international documentary series.",
+        "33 days. 10,000 miles. 25 U.S. states. Solo on a Suzuki DR650 with a Pakistani passport and flag — snow, desert heat, thunderstorms, a crash, and countless human connections.",
     },
     {
-      year: "2023",
-      title: "Silk Road Revival",
+      year: "Today",
+      title: "Be Like Shan",
       description:
-        "12,000km from Pakistan to Istanbul. Featured in international media. The journey that defined the brand.",
-    },
-    {
-      year: "2025",
-      title: "Beyond Borders",
-      description:
-        "Currently planning the next chapter — Africa overland, solo, unsupported.",
+        "Based in Toronto, documenting expeditions, films and stories that carry Pakistan to the world — one mile, one conversation, one documentary at a time.",
     },
   ],
 };

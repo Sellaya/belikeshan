@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { MapPin, Navigation, Cloud, Activity } from "lucide-react";
+import { MapPin, Route, Flag } from "lucide-react";
 
 export default function LiveMap() {
   return (
@@ -13,49 +15,34 @@ export default function LiveMap() {
           viewport={{ once: true }}
           className="mb-16 md:mb-24"
         >
-          <span className="label-text">09 — Live Expedition</span>
-          <h2 className="heading-lg mt-6">Currently on the road.</h2>
+          <span className="label-text">09 — Expedition Complete</span>
+          <h2 className="heading-lg mt-6">The loop is closed. The story continues.</h2>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 relative aspect-[16/10] bg-primary rounded-sm overflow-hidden">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <svg viewBox="0 0 100 60" className="w-full h-full opacity-10">
-                <path
-                  d="M20,30 Q40,10 60,25 T90,30"
-                  fill="none"
-                  stroke="#b8a99a"
-                  strokeWidth="0.5"
-                  strokeDasharray="2,2"
-                />
-              </svg>
-            </div>
-
-            <motion.div
-              className="absolute"
-              style={{ left: "45%", top: "40%" }}
-              animate={{ scale: [1, 1.3, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <div className="w-4 h-4 rounded-full bg-orange-light border-2 border-orange/40" />
-            </motion.div>
-
-            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-primary to-transparent">
+          <div className="lg:col-span-2 relative aspect-[16/10] overflow-hidden">
+            <Image
+              src="/media/press/usa-loop-trailer.jpg"
+              alt="USA Loop completed"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6">
               <div className="flex items-center gap-2 mb-2">
-                <span className="w-2 h-2 rounded-full bg-orange-light animate-pulse" />
-                <span className="text-xs uppercase tracking-wider text-orange-light">Live</span>
+                <span className="w-2 h-2 rounded-full bg-forest-light" />
+                <span className="text-xs uppercase tracking-wider text-forest-light">Completed · 2026</span>
               </div>
-              <h3 className="text-xl font-light">Africa Overland — Planning Phase</h3>
-              <p className="text-sm text-muted mt-1">Cape Town → Cairo · 15,000 km</p>
+              <h3 className="text-xl font-light">USA Loop Expedition</h3>
+              <p className="text-sm text-muted mt-1">25 states · 10,000 miles · 33 days · Suzuki DR650</p>
             </div>
           </div>
 
           <div className="space-y-4">
             {[
-              { icon: MapPin, label: "Current Location", value: "Karachi, Pakistan" },
-              { icon: Navigation, label: "Next Destination", value: "Cape Town, South Africa" },
-              { icon: Activity, label: "Journey Progress", value: "Preparation — 35%" },
-              { icon: Cloud, label: "Conditions", value: "Clear · 28°C" },
+              { icon: Route, label: "Route", value: "Full USA Loop — North to South to East" },
+              { icon: Flag, label: "Carried", value: "🇵🇰 Pakistani flag across 25 states" },
+              { icon: MapPin, label: "Based", value: "Toronto, Canada" },
             ].map((item, i) => (
               <motion.div
                 key={item.label}
@@ -67,22 +54,20 @@ export default function LiveMap() {
               >
                 <div className="flex items-center gap-3 mb-2">
                   <item.icon size={16} className="text-sand" />
-                  <span className="text-xs uppercase tracking-wider text-muted">
-                    {item.label}
-                  </span>
+                  <span className="text-xs uppercase tracking-wider text-muted">{item.label}</span>
                 </div>
                 <p className="text-lg font-light text-off-white">{item.value}</p>
               </motion.div>
             ))}
 
-            <div className="p-5 border border-orange/15 bg-orange/5">
-              <p className="text-xs uppercase tracking-wider text-orange-light mb-2">
-                Coming September 2026
-              </p>
-              <p className="text-sm text-muted">
-                Follow the live tracker when the expedition begins.
-              </p>
-            </div>
+            <Link
+              href="/expeditions/usa-loop"
+              data-cursor
+              className="block p-5 border border-sand/20 bg-sand/5 text-center hover:bg-sand/10 transition-colors"
+            >
+              <p className="text-xs uppercase tracking-wider text-sand mb-2">Explore the full story</p>
+              <p className="text-sm text-muted">Timeline, gallery, films & press</p>
+            </Link>
           </div>
         </div>
       </div>
