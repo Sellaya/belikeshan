@@ -1,0 +1,77 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
+import Navigation from "@/components/layout/Navigation";
+import Footer from "@/components/layout/Footer";
+import MDXContent from "@/components/mdx/MDXContent";
+import { getBlogPost, getBlogSlugs } from "@/lib/content";
+
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+const categoryLabels = {
+  journal: "Travel Journal",
+  photography: "Photography",
+  "behind-the-scenes": "Behind the Scenes",
+  "motorcycle-tips": "Motorcycle Tips",
+};
+
+export async function generateStaticParams() {
+  return getBlogSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getBlogPost(slug);
+  if (!post) return { title: "Post Not Found" };
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+  };
+}
+
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = getBlogPost(slug);
+  if (!post) notFound();
+
+  return (
+    <>
+      <Navigation />
+      <main className="pt-24">
+        <div className="relative h-[40vh] md:h-[50vh]">
+          <Image
+            src={post.coverImage}
+            alt={post.title}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
+        </div>
+
+        <article className="container-wide max-w-3xl py-16 md:py-24">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-sm text-muted hover:text-sand transition-colors mb-8"
+          >
+            <ArrowLeft size={16} /> Back to Journal
+          </Link>
+
+          <span className="label-text">{categoryLabels[post.category]}</span>
+          <h1 className="heading-lg mt-4 mb-4">{post.title}</h1>
+          <p className="text-sm text-muted mb-12">
+            {post.date} · {post.readTime}
+          </p>
+
+          <MDXContent content={post.content} />
+        </article>
+      </main>
+      <Footer />
+    </>
+  );
+}
