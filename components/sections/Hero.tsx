@@ -9,7 +9,7 @@ export default function Hero() {
     <section className="relative h-screen w-full overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center scale-105"
-        style={{ backgroundImage: "url(/media/press/usa-loop-trailer.jpg)" }}
+        style={{ backgroundImage: "url(/media/gallery/gallery-34.jpg)" }}
       />
       <div className="absolute inset-0 hero-overlay" />
 

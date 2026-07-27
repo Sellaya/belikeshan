@@ -2,7 +2,7 @@
 slug: monument-valley-crash
 title: The Crash Near Monument Valley
 excerpt: In the Arizona desert, the bike went down. I checked myself, checked the motorcycle, and chose to continue.
-coverImage: /media/press/press-02.jpg
+coverImage: /media/gallery/gallery-16.jpg
 date: 2026-06-28
 category: journal
 readTime: 5 min

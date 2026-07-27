@@ -22,7 +22,7 @@ export default function LiveMap() {
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 relative aspect-[16/10] overflow-hidden">
             <Image
-              src="/media/press/usa-loop-trailer.jpg"
+              src="/media/gallery/gallery-49.jpg"
               alt="USA Loop completed"
               fill
               className="object-cover"

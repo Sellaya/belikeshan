@@ -2,7 +2,7 @@
 slug: hardy-virginia-human-connection
 title: The Night in Hardy, Virginia
 excerpt: A couple who had never met a Pakistani opened their 100-year-old home — and changed what the journey meant.
-coverImage: /media/press/press-07.jpg
+coverImage: /media/gallery/gallery-20.jpg
 date: 2026-07-01
 category: journal
 readTime: 6 min

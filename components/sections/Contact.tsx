@@ -18,7 +18,7 @@ export default function Contact() {
     <section id="contact" className="relative section-padding overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url(/media/press/thunderstorms-day7.jpg)" }}
+        style={{ backgroundImage: "url(/media/gallery/gallery-24.jpg)" }}
       />
       <div className="absolute inset-0 bg-primary/85" />
 

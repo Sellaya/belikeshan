@@ -7,7 +7,7 @@ export const films: Film[] = [
     description:
       "The official trailer for the USA Loop — a 33-day, 10,000-mile solo motorcycle expedition across 25 U.S. states on a Suzuki DR650, carrying the Pakistani flag.",
     youtubeId: "JSuWrvJGpXA",
-    thumbnail: "/media/press/usa-loop-trailer.jpg",
+    thumbnail: "/media/gallery/gallery-08.jpg",
     duration: "Trailer",
     year: "2026",
   },
@@ -17,7 +17,7 @@ export const films: Film[] = [
     description:
       "Riding through three severe thunderstorms in a single day — raw, unfiltered documentary from the middle of the USA Loop.",
     youtubeId: "nBG01dbLDWA",
-    thumbnail: "/media/press/thunderstorms-day7.jpg",
+    thumbnail: "/media/gallery/gallery-24.jpg",
     duration: "Episode",
     year: "2026",
   },

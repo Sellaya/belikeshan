@@ -81,7 +81,17 @@ export default function PhotoGallery() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-500" />
+                {(img.caption || img.location) && (
+                  <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-primary/90 to-transparent">
+                    {img.caption && (
+                      <p className="text-sm text-off-white font-light">{img.caption}</p>
+                    )}
+                    {img.location && (
+                      <p className="text-xs text-muted mt-1">{img.location}</p>
+                    )}
+                  </div>
+                )}
               </div>
             </motion.button>
           ))}
@@ -133,9 +143,21 @@ export default function PhotoGallery() {
                 priority
               />
             </motion.div>
-            <p className="absolute bottom-6 text-sm text-muted">
-              {lightboxIndex + 1} / {galleryImages.length}
-            </p>
+            <div className="absolute bottom-6 left-0 right-0 text-center px-6">
+              {galleryImages[lightboxIndex].caption && (
+                <p className="text-base text-off-white font-light mb-1">
+                  {galleryImages[lightboxIndex].caption}
+                </p>
+              )}
+              {galleryImages[lightboxIndex].location && (
+                <p className="text-sm text-muted mb-2">
+                  {galleryImages[lightboxIndex].location}
+                </p>
+              )}
+              <p className="text-sm text-muted">
+                {lightboxIndex + 1} / {galleryImages.length}
+              </p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

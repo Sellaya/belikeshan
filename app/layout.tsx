@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Pakistani adventure rider, filmmaker and storyteller. 33 days, 10,000 miles, 25 U.S. states on a Suzuki DR650.",
     type: "website",
     locale: "en_US",
-    images: ["/media/press/usa-loop-trailer.jpg"],
+    images: ["/media/gallery/gallery-34.jpg"],
   },
   robots: {
     index: true,

@@ -11,7 +11,7 @@ export const profile: Profile = {
   bio: "For Shan-e-Ali, life is motion. Originally from Lahore and now based in Toronto, he is a Pakistani adventure motorcyclist, filmmaker and storyteller behind Be Like Shan. After years of motorcycle travel across Pakistan, he completed his most ambitious expedition: a 33-day solo loop across 25 U.S. states, covering 10,000 miles on a Suzuki DR650 while travelling on a Pakistani passport and carrying Pakistan's flag. The ride crossed snow, desert heat, thunderstorms, isolation and a crash — but its defining story was human connection.",
   shortBio:
     "Toronto-based Pakistani adventure motorcyclist, filmmaker and storyteller originally from Lahore. Through Be Like Shan, he documents remote roads, demanding expeditions and meaningful encounters with people across cultures.",
-  portrait: "/media/press/usa-loop-trailer.jpg",
+  portrait: "/media/gallery/gallery-50.jpg",
   email: "belikeshan@gmail.com",
   location: "Toronto, Canada · Originally from Lahore, Pakistan",
   philosophy: "Life is Motion.",

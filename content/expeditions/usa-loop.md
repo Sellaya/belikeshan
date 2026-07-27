@@ -3,7 +3,7 @@ slug: usa-loop
 title: USA Loop Expedition
 subtitle: 25 States · 10,000 Miles · One Pakistani Flag
 description: A 33-day solo motorcycle loop across 25 U.S. states — 10,000 miles on a Suzuki DR650, travelling on a Pakistani passport and carrying the Pakistani flag. Snow, desert heat, thunderstorms, a crash, and the human connections that defined the ride.
-coverImage: /media/press/usa-loop-trailer.jpg
+coverImage: /media/gallery/gallery-49.jpg
 featured: true
 status: completed
 startDate: 2026
@@ -28,16 +28,57 @@ stats:
   - label: Passport
     value: 🇵🇰 Pakistani
 gallery:
-  - /media/press/usa-loop-trailer.jpg
-  - /media/press/thunderstorms-day7.jpg
-  - /media/press/press-01.jpg
-  - /media/press/press-02.jpg
-  - /media/press/press-03.jpg
-  - /media/press/press-04.jpg
-  - /media/press/press-05.jpg
-  - /media/press/press-06.jpg
-  - /media/press/press-07.jpg
-  - /media/press/press-08.jpg
+  - /media/gallery/gallery-01.jpg
+  - /media/gallery/gallery-02.jpg
+  - /media/gallery/gallery-03.jpg
+  - /media/gallery/gallery-04.jpg
+  - /media/gallery/gallery-05.jpg
+  - /media/gallery/gallery-06.jpg
+  - /media/gallery/gallery-07.jpg
+  - /media/gallery/gallery-08.jpg
+  - /media/gallery/gallery-09.jpg
+  - /media/gallery/gallery-10.jpg
+  - /media/gallery/gallery-11.jpg
+  - /media/gallery/gallery-12.jpg
+  - /media/gallery/gallery-13.jpg
+  - /media/gallery/gallery-14.jpg
+  - /media/gallery/gallery-15.jpg
+  - /media/gallery/gallery-16.jpg
+  - /media/gallery/gallery-17.jpg
+  - /media/gallery/gallery-18.jpg
+  - /media/gallery/gallery-19.jpg
+  - /media/gallery/gallery-20.jpg
+  - /media/gallery/gallery-21.jpg
+  - /media/gallery/gallery-22.jpg
+  - /media/gallery/gallery-23.jpg
+  - /media/gallery/gallery-24.jpg
+  - /media/gallery/gallery-25.jpg
+  - /media/gallery/gallery-26.jpg
+  - /media/gallery/gallery-27.jpg
+  - /media/gallery/gallery-28.jpg
+  - /media/gallery/gallery-29.jpg
+  - /media/gallery/gallery-30.jpg
+  - /media/gallery/gallery-31.jpg
+  - /media/gallery/gallery-32.jpg
+  - /media/gallery/gallery-33.jpg
+  - /media/gallery/gallery-34.jpg
+  - /media/gallery/gallery-35.jpg
+  - /media/gallery/gallery-36.jpg
+  - /media/gallery/gallery-37.jpg
+  - /media/gallery/gallery-38.jpg
+  - /media/gallery/gallery-39.jpg
+  - /media/gallery/gallery-40.jpg
+  - /media/gallery/gallery-41.jpg
+  - /media/gallery/gallery-42.jpg
+  - /media/gallery/gallery-43.jpg
+  - /media/gallery/gallery-44.jpg
+  - /media/gallery/gallery-45.jpg
+  - /media/gallery/gallery-46.jpg
+  - /media/gallery/gallery-47.jpg
+  - /media/gallery/gallery-48.jpg
+  - /media/gallery/gallery-49.jpg
+  - /media/gallery/gallery-50.jpg
+  - /media/gallery/gallery-51.jpg
 videos:
   - title: USA Loop Journey Trailer
     youtubeId: JSuWrvJGpXA

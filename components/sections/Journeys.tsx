@@ -37,7 +37,7 @@ export default function Journeys({ expeditions }: JourneysProps) {
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
           <div className="lg:col-span-3 relative aspect-[16/10] overflow-hidden">
             <Image
-              src="/media/press/usa-loop-trailer.jpg"
+              src="/media/gallery/gallery-08.jpg"
               alt="USA Loop route"
               fill
               className="object-cover"

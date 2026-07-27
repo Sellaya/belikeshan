@@ -15,7 +15,7 @@ export default function FeaturedExpedition({ expedition }: FeaturedExpeditionPro
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/media/press/usa-loop-trailer.jpg"
+          src="/media/gallery/gallery-49.jpg"
           alt="USA Loop Expedition"
           fill
           className="object-cover"

@@ -2,7 +2,7 @@
 slug: three-thunderstorms-one-day
 title: Three Thunderstorms in One Day
 excerpt: USA Loop Day 7 — riding through three severe thunderstorms toward Hot Springs, Arkansas. Watch the full episode.
-coverImage: /media/press/thunderstorms-day7.jpg
+coverImage: /media/gallery/gallery-24.jpg
 date: 2026-06-20
 category: behind-the-scenes
 readTime: 4 min
