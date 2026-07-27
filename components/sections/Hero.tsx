@@ -29,6 +29,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 1 }}
         >
+          <span className="block text-base sm:text-lg md:text-xl font-normal tracking-normal text-white/80 mb-3 sm:mb-4">
+            {profile.name} — Pakistani Adventure Rider & Filmmaker
+          </span>
           {profile.tagline}
         </motion.h1>
 

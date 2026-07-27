@@ -4,13 +4,15 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Play, MapPin, Calendar, Route } from "lucide-react";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
+import JsonLd from "@/components/seo/JsonLd";
 import MarkdownContent from "@/components/content/MarkdownContent";
 import { getExpedition, getExpeditionSlugs } from "@/lib/content";
 import { profile } from "@/data/profile";
 import { videoWatchUrl } from "@/data/social-videos";
 import CoverImage from "@/components/ui/CoverImage";
 import ExpeditionGallerySection from "@/components/content/ExpeditionGallerySection";
-import { formatNumber } from "@/lib/utils";
+import { buildPageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, expeditionJsonLd } from "@/lib/structured-data";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -25,11 +27,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const expedition = getExpedition(slug);
   if (!expedition) return { title: "Expedition Not Found" };
 
-  return {
+  return buildPageMetadata({
     title: expedition.seo.title,
     description: expedition.seo.description,
+    path: `/expeditions/${slug}`,
     keywords: expedition.seo.keywords,
-  };
+    image: expedition.coverImage,
+  });
 }
 
 export default async function ExpeditionPage({ params }: Props) {
@@ -39,6 +43,16 @@ export default async function ExpeditionPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Expeditions", path: "/expeditions" },
+            { name: expedition.title, path: `/expeditions/${slug}` },
+          ]),
+          expeditionJsonLd(expedition),
+        ]}
+      />
       <Navigation />
       <main className="pt-nav">
         <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] thumb-frame">

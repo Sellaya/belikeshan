@@ -7,6 +7,9 @@ import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import MarkdownContent from "@/components/content/MarkdownContent";
 import { getBlogPost, getBlogSlugs } from "@/lib/content";
+import { buildPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import { blogPostJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -28,10 +31,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPost(slug);
   if (!post) return { title: "Post Not Found" };
 
-  return {
-    title: post.title,
+  return buildPageMetadata({
+    title: `${post.title} — Travel Journal`,
     description: post.excerpt,
-  };
+    path: `/blog/${slug}`,
+    image: post.coverImage,
+    type: "article",
+    publishedTime: post.date,
+    keywords: [
+      "belikeshan journal",
+      "motorcycle travel story",
+      post.category.replace(/-/g, " "),
+      "Shan-e-Ali adventure",
+    ],
+  });
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -41,6 +54,16 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Journal", path: "/blog" },
+            { name: post.title, path: `/blog/${slug}` },
+          ]),
+          blogPostJsonLd(post),
+        ]}
+      />
       <Navigation />
       <main className="pt-nav">
         <div className="relative h-[40vh] md:h-[50vh]">

@@ -4,12 +4,25 @@ import Link from "next/link";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import { getBlogPosts } from "@/lib/content";
+import { buildPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
 
-export const metadata: Metadata = {
-  title: "Travel Journal",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Travel Journal — Motorcycle Adventure Stories & Road Tips",
   description:
-    "Adventure stories, photography, behind-the-scenes, and motorcycle tips from the road.",
-};
+    "Read Shan-e-Ali's travel journal from belikeshan — adventure stories, behind-the-scenes moments, motorcycle tips and photography from solo expeditions across Pakistan and the USA.",
+  path: "/blog",
+  keywords: [
+    "motorcycle travel journal",
+    "adventure travel blog",
+    "belikeshan journal",
+    "Pakistani rider stories",
+    "USA Loop travel stories",
+    "motorcycle tips",
+    "adventure photography blog",
+  ],
+});
 
 const categoryLabels = {
   journal: "Travel Journal",
@@ -23,6 +36,12 @@ export default function BlogPage() {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Journal", path: "/blog" },
+        ])}
+      />
       <Navigation />
       <main className="pt-nav pb-16 md:pb-24">
         <div className="container-wide">

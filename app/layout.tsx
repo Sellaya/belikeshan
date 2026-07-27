@@ -3,6 +3,7 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import { DEFAULT_DESCRIPTION, DEFAULT_KEYWORDS, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -15,38 +16,38 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  themeColor: "#0a0a0a",
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Shan-e-Ali | Pakistani Adventure Rider & Filmmaker",
-    template: "%s | belikeshan",
+    default: "Shan-e-Ali | Pakistani Adventure Rider, Filmmaker & Storyteller",
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Meet Shan-e-Ali, the Pakistani adventure rider behind belikeshan. Explore his 10,000-mile solo motorcycle loop across 25 U.S. states, films, photography and stories from the road.",
-  keywords: [
-    "Shan-e-Ali adventure rider",
-    "belikeshan",
-    "Pakistani adventure motorcyclist",
-    "USA motorcycle loop",
-    "solo motorcycle expedition USA",
-    "Pakistani passport motorcycle journey",
-    "Suzuki DR650 adventure rider",
-    "motorcycle travel filmmaker",
-    "Pakistani adventure rider",
-  ],
+  description: DEFAULT_DESCRIPTION,
+  keywords: DEFAULT_KEYWORDS,
+  applicationName: SITE_NAME,
+  authors: [{ name: "Shan-e-Ali", url: SITE_URL }],
+  creator: "Shan-e-Ali",
+  publisher: SITE_NAME,
+  category: "Travel",
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  alternates: { canonical: SITE_URL },
   openGraph: {
-    title: "Shan-e-Ali — Explore Beyond Maps",
-    description:
-      "Pakistani adventure rider, filmmaker and storyteller. 33 days, 10,000 miles, 25 U.S. states on a Suzuki DR650.",
     type: "website",
     locale: "en_US",
-    images: ["/media/gallery/gallery-34.jpg"],
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: "Shan-e-Ali | Pakistani Adventure Rider & Filmmaker",
+    description: DEFAULT_DESCRIPTION,
+    images: [{ url: "/media/gallery/gallery-34.jpg", width: 1200, height: 630 }],
   },
-  robots: {
-    index: true,
-    follow: true,
+  twitter: {
+    card: "summary_large_image",
+    creator: "@belikeshan",
   },
+  formatDetection: { email: true, telephone: false },
 };
 
 export default function RootLayout({
