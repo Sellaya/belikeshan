@@ -45,7 +45,7 @@ export default function BlogPage() {
                   <span className="label-text text-[10px]">
                     {categoryLabels[post.category]}
                   </span>
-                  <h2 className="text-xl font-light text-off-white mt-2 group-hover:text-sand transition-colors">
+                  <h2 className="text-xl font-light text-off-white mt-2 group-hover:text-white transition-colors">
                     {post.title}
                   </h2>
                   <p className="text-sm text-muted mt-2 line-clamp-2">{post.excerpt}</p>

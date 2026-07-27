@@ -109,10 +109,10 @@ timeline:
 seo:
   title: USA Loop Expedition — Shan-e-Ali Solo Motorcycle Journey Across 25 U.S. States
   description: 33-day, 10,000-mile solo motorcycle loop across 25 U.S. states on a Suzuki DR650 with a Pakistani passport and flag.
-  keywords: [USA Loop, Shan-e-Ali, Be Like Shan, Pakistani adventure rider, Suzuki DR650, solo motorcycle expedition USA]
+  keywords: [USA Loop, Shan-e-Ali, belikeshan, Pakistani adventure rider, Suzuki DR650, solo motorcycle expedition USA]
 ---
 
-For Shan-e-Ali, the USA Loop was never just about distance. It was about motion — the philosophy that has defined every mile of Be Like Shan.
+For Shan-e-Ali, the USA Loop was never just about distance. It was about motion — the philosophy that has defined every mile of belikeshan.
 
 ## The Expedition
 

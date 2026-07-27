@@ -36,18 +36,18 @@ export default function WhoIAm() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-sand/20 hidden md:block" />
-            <p className="mt-6 label-text text-sand">{profile.brand} · {profile.handle}</p>
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-white/20 hidden md:block" />
+            <p className="mt-6 label-text">{profile.brand} · {profile.handle}</p>
           </motion.div>
 
           <motion.div style={{ y: textY }}>
-            <h2 className="heading-lg mb-4 text-balance">
+            <h2 className="heading-lg mb-4 text-balance text-white">
               Stories written on asphalt and human connection.
             </h2>
-            <p className="text-sand text-lg mb-8 font-light italic">{profile.philosophy}</p>
+            <p className="text-white/80 text-base mb-8 font-medium">{profile.philosophy}</p>
             <p className="body-lg mb-12">{profile.bio}</p>
 
-            <div className="relative pl-8 border-l border-sand/20">
+            <div className="relative pl-8 border-l border-white/20">
               {profile.timeline.map((item, i) => (
                 <motion.div
                   key={item.year}
@@ -57,10 +57,10 @@ export default function WhoIAm() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, duration: 0.6 }}
                 >
-                  <div className="absolute -left-8 top-1 w-4 h-4 rounded-full border border-sand bg-primary" />
-                  <span className="label-text text-sand">{item.year}</span>
-                  <h3 className="text-xl font-light text-off-white mt-2 mb-2">{item.title}</h3>
-                  <p className="text-muted font-light leading-relaxed">{item.description}</p>
+                  <div className="absolute -left-8 top-1 w-4 h-4 rounded-full border border-white/40 bg-primary" />
+                  <span className="label-text">{item.year}</span>
+                  <h3 className="text-xl font-medium text-white mt-2 mb-2">{item.title}</h3>
+                  <p className="text-white/65 leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
             </div>

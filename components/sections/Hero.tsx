@@ -13,30 +13,30 @@ export default function Hero() {
       />
       <div className="absolute inset-0 hero-overlay" />
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 text-white">
         <motion.p
-          className="label-text mb-4 text-sand"
+          className="label-on-image mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.4, duration: 0.8 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
         >
           {profile.brand} · {profile.philosophy}
         </motion.p>
 
         <motion.h1
-          className="heading-xl text-balance max-w-5xl"
+          className="heading-xl text-balance max-w-5xl text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.6, duration: 1 }}
+          transition={{ delay: 0.35, duration: 1 }}
         >
           {profile.tagline}
         </motion.h1>
 
         <motion.p
-          className="mt-6 max-w-2xl text-base md:text-lg text-muted font-light leading-relaxed"
+          className="mt-6 max-w-2xl text-base md:text-lg text-white/75 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2.8, duration: 0.8 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
         >
           {profile.subtitle}
         </motion.p>
@@ -45,15 +45,15 @@ export default function Hero() {
           className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 3, duration: 0.8 }}
+          transition={{ delay: 0.65, duration: 0.8 }}
         >
           {profile.roles.map((role: string, i: number) => (
             <span key={role} className="flex items-center gap-6">
-              <span className="text-sm md:text-base text-off-white/80 font-light tracking-wide">
+              <span className="text-sm md:text-base text-white/80 tracking-wide">
                 {role}
               </span>
               {i < profile.roles.length - 1 && (
-                <span className="hidden sm:block w-1 h-1 rounded-full bg-sand/50" />
+                <span className="hidden sm:block w-1 h-1 rounded-full bg-white/40" />
               )}
             </span>
           ))}
@@ -63,21 +63,21 @@ export default function Hero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.2, duration: 0.8 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
         >
           <Link
-            href="/expeditions/usa-loop"
+            href="#journeys"
             data-cursor
-            className="px-8 py-4 bg-sand text-primary text-sm uppercase tracking-wider font-medium hover:bg-sand-light transition-all hover:-translate-y-0.5"
+            className="px-8 py-3.5 bg-white text-primary text-xs uppercase tracking-[0.12em] font-medium hover:bg-white/90 transition-all"
           >
-            Explore the USA Loop
+            View Expeditions
           </Link>
           <Link
             href="#films"
             data-cursor
-            className="px-8 py-4 border border-off-white/20 text-sm uppercase tracking-wider hover:border-sand hover:text-sand transition-all"
+            className="px-8 py-3.5 border border-white/40 text-white text-xs uppercase tracking-[0.12em] hover:border-white hover:bg-white/10 transition-all"
           >
-            Watch the Journey
+            Watch Films
           </Link>
         </motion.div>
       </div>
@@ -86,12 +86,12 @@ export default function Hero() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3.4, duration: 0.8 }}
+        transition={{ delay: 1, duration: 0.8 }}
       >
-        <span className="label-text text-[10px]">Scroll</span>
-        <div className="w-[1px] h-12 bg-sand/30 relative overflow-hidden">
+        <span className="label-on-image">Scroll</span>
+        <div className="w-[1px] h-12 bg-white/30 relative overflow-hidden">
           <motion.div
-            className="absolute top-0 left-0 w-full h-1/2 bg-sand"
+            className="absolute top-0 left-0 w-full h-1/2 bg-white"
             animate={{ y: ["0%", "200%"] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />

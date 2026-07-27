@@ -14,9 +14,9 @@ export default function AchievementStrip() {
           transition={{ duration: 0.8 }}
           className="text-center mb-10"
         >
-          <span className="label-text">USA Loop Expedition · 2026</span>
-          <p className="mt-4 text-sm md:text-base text-muted font-light max-w-3xl mx-auto">
-            First Pakistani passport holder publicly documented completing this solo USA motorcycle loop
+          <span className="label-text">Most Recent Journey · USA Loop 2026</span>
+          <p className="mt-4 text-sm md:text-base text-white/70 max-w-3xl mx-auto">
+            Highlights from the latest completed expedition — one chapter in an ongoing story of adventure
           </p>
         </motion.div>
 
@@ -30,7 +30,7 @@ export default function AchievementStrip() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.6 }}
             >
-              <p className="text-2xl md:text-3xl font-light text-sand">{item.value}</p>
+              <p className="text-2xl md:text-3xl font-medium text-white">{item.value}</p>
               <p className="label-text mt-2 text-[10px]">{item.label}</p>
             </motion.div>
           ))}

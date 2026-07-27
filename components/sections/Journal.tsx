@@ -34,7 +34,7 @@ export default function Journal({ posts }: JournalProps) {
           <Link
             href="/blog"
             data-cursor
-            className="hidden md:flex items-center gap-2 text-sm uppercase tracking-wider text-muted hover:text-sand transition-colors"
+            className="hidden md:flex items-center gap-2 text-sm uppercase tracking-wider text-muted hover:text-white transition-colors"
           >
             View all <ArrowRight size={16} />
           </Link>
@@ -62,7 +62,7 @@ export default function Journal({ posts }: JournalProps) {
                 <span className="label-text text-[10px]">
                   {categoryLabels[post.category]}
                 </span>
-                <h3 className="text-xl font-light text-off-white mt-2 group-hover:text-sand transition-colors">
+                <h3 className="text-xl font-light text-off-white mt-2 group-hover:text-white transition-colors">
                   {post.title}
                 </h3>
                 <p className="text-sm text-muted mt-2 line-clamp-2">{post.excerpt}</p>

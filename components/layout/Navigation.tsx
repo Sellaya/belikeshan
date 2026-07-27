@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { profile } from "@/data/profile";
 
 const links = [
   { label: "About", href: "#about" },
@@ -36,7 +37,7 @@ export default function Navigation() {
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ delay: 2.2, duration: 0.8 }}
+        transition={{ delay: 0.3, duration: 0.8 }}
       >
         <nav className="container-wide flex items-center justify-between">
           <a
@@ -46,9 +47,9 @@ export default function Navigation() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="text-sm uppercase tracking-[0.25em] font-medium text-off-white hover:text-sand transition-colors"
+            className="text-sm lowercase tracking-[0.08em] font-medium text-white hover:text-white/80 transition-colors"
           >
-            Be Like Shan
+            {profile.brand}
           </a>
 
           <ul className="hidden md:flex items-center gap-10">
@@ -61,7 +62,7 @@ export default function Navigation() {
                     e.preventDefault();
                     scrollTo(link.href);
                   }}
-                  className="text-xs uppercase tracking-[0.15em] text-muted hover:text-off-white transition-colors"
+                  className="text-xs uppercase tracking-[0.12em] text-white/60 hover:text-white transition-colors"
                 >
                   {link.label}
                 </a>

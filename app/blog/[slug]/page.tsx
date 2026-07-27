@@ -51,23 +51,23 @@ export default async function BlogPostPage({ params }: Props) {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
+          <div className="absolute inset-0 overlay-image-bottom" />
+          <div className="absolute bottom-0 left-0 right-0 container-wide pb-10 md:pb-12 text-white">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-6"
+            >
+              <ArrowLeft size={16} /> Back to Journal
+            </Link>
+            <span className="label-on-image">{categoryLabels[post.category]}</span>
+            <h1 className="heading-lg mt-4 mb-3 text-white">{post.title}</h1>
+            <p className="text-sm text-white/65">
+              {post.date} · {post.readTime}
+            </p>
+          </div>
         </div>
 
         <article className="container-wide max-w-3xl py-16 md:py-24">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-muted hover:text-sand transition-colors mb-8"
-          >
-            <ArrowLeft size={16} /> Back to Journal
-          </Link>
-
-          <span className="label-text">{categoryLabels[post.category]}</span>
-          <h1 className="heading-lg mt-4 mb-4">{post.title}</h1>
-          <p className="text-sm text-muted mb-12">
-            {post.date} · {post.readTime}
-          </p>
-
           <MarkdownContent content={post.content} />
         </article>
       </main>

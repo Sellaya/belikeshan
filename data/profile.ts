@@ -2,17 +2,17 @@ import type { Profile } from "@/lib/types";
 
 export const profile: Profile = {
   name: "Shan-e-Ali",
-  brand: "Be Like Shan",
+  brand: "belikeshan",
   handle: "@belikeshan",
   tagline: "Explore Beyond Maps.",
   subtitle:
-    "Shan-e-Ali documents long-distance motorcycle expeditions, difficult roads and the people who transform a journey.",
+    "Pakistani adventure rider, filmmaker and storyteller — documenting expeditions across continents, one road and one conversation at a time.",
   roles: ["Adventure Rider", "Filmmaker", "Storyteller"],
-  bio: "For Shan-e-Ali, life is motion. Originally from Lahore and now based in Toronto, he is a Pakistani adventure motorcyclist, filmmaker and storyteller behind Be Like Shan. After years of motorcycle travel across Pakistan, he completed his most ambitious expedition: a 33-day solo loop across 25 U.S. states, covering 10,000 miles on a Suzuki DR650 while travelling on a Pakistani passport and carrying Pakistan's flag. The ride crossed snow, desert heat, thunderstorms, isolation and a crash — but its defining story was human connection.",
+  bio: "For Shan-e-Ali, life is motion. Originally from Lahore and now based in Toronto, he has spent years on two wheels across Pakistan before carrying that same spirit abroad. His most recent expedition — a 33-day solo loop across 25 U.S. states on a Suzuki DR650 with a Pakistani passport and flag — is one chapter in a much longer story. The next adventure is already in process. Through belikeshan, he shares films, photography and stories from every journey — not just one ride, but a lifetime of exploration.",
   shortBio:
-    "Toronto-based Pakistani adventure motorcyclist, filmmaker and storyteller originally from Lahore. Through Be Like Shan, he documents remote roads, demanding expeditions and meaningful encounters with people across cultures.",
+    "Toronto-based Pakistani adventure motorcyclist, filmmaker and storyteller. Documenting expeditions, human connection and the roads that link cultures — with the next adventure already underway.",
   portrait: "/media/gallery/gallery-50.jpg",
-  email: "belikeshan@gmail.com",
+  email: "hello@belikeshan.com",
   location: "Toronto, Canada · Originally from Lahore, Pakistan",
   philosophy: "Life is Motion.",
   social: {
@@ -20,7 +20,7 @@ export const profile: Profile = {
     youtube: "https://www.youtube.com/channel/UC174LS2fGBFR1vOcplMkjyg",
     facebook: "https://www.facebook.com/belikeshan/",
     support: "https://buymeacoffee.com/belikeshan",
-    email: "mailto:belikeshan@gmail.com",
+    email: "mailto:hello@belikeshan.com",
   },
   achievements: [
     { label: "U.S. States", value: "25" },
@@ -41,19 +41,25 @@ export const profile: Profile = {
       year: "8+ Years",
       title: "Pakistan on Two Wheels",
       description:
-        "Approximately eight years of motorcycle travel across Pakistan — remote roads, demanding terrain and the foundation of everything that followed.",
+        "Years of motorcycle travel across Pakistan — remote roads, demanding terrain and the foundation of every expedition that followed.",
     },
     {
       year: "2026",
-      title: "USA Loop Expedition",
+      title: "USA Loop — Most Recent Journey",
       description:
-        "33 days. 10,000 miles. 25 U.S. states. Solo on a Suzuki DR650 with a Pakistani passport and flag — snow, desert heat, thunderstorms, a crash, and countless human connections.",
+        "33 days. 10,000 miles. 25 U.S. states. Solo on a Suzuki DR650 with a Pakistani passport and flag — the latest completed chapter.",
     },
     {
-      year: "Today",
-      title: "Be Like Shan",
+      year: "Now",
+      title: "Next Adventure — In Process",
       description:
-        "Based in Toronto, documenting expeditions, films and stories that carry Pakistan to the world — one mile, one conversation, one documentary at a time.",
+        "Planning and preparation underway for the next expedition. Routes, gear and storylines are taking shape.",
+    },
+    {
+      year: "Always",
+      title: "belikeshan",
+      description:
+        "Based in Toronto, building a body of work across many journeys — films, photography and stories that carry Pakistan to the world.",
     },
   ],
 };

@@ -50,7 +50,8 @@ export interface Film {
   id: string;
   title: string;
   description: string;
-  youtubeId: string;
+  youtubeId?: string;
+  externalUrl?: string;
   thumbnail: string;
   duration: string;
   year: string;

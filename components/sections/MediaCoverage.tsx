@@ -28,7 +28,7 @@ function MediaCard({ item, large = false }: { item: MediaItem; large?: boolean }
       data-cursor
       target="_blank"
       rel="noopener noreferrer"
-      className={`group block overflow-hidden border border-white/5 hover:border-sand/20 transition-all duration-500 hover:bg-white/[0.02] ${
+      className={`group block overflow-hidden border border-white/5 hover:border-white/20 transition-all duration-500 hover:bg-white/[0.02] ${
         large ? "md:grid md:grid-cols-2" : ""
       }`}
       initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ function MediaCard({ item, large = false }: { item: MediaItem; large?: boolean }
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
           {item.featured && (
-            <span className="absolute top-4 left-4 label-text text-[10px] bg-sand text-primary px-3 py-1">
+            <span className="absolute top-4 left-4 label-text text-[10px] bg-white text-primary px-3 py-1">
               Featured Story
             </span>
           )}
@@ -57,7 +57,7 @@ function MediaCard({ item, large = false }: { item: MediaItem; large?: boolean }
       <div className={`p-6 ${large ? "md:p-10 flex flex-col justify-center" : ""}`}>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <PlatformIcon size={14} className="text-sand" />
+            <PlatformIcon size={14} className="text-white/80" />
             <span className="label-text text-[10px]">{item.publication}</span>
           </div>
           <ExternalLink
@@ -66,7 +66,7 @@ function MediaCard({ item, large = false }: { item: MediaItem; large?: boolean }
           />
         </div>
         <h3
-          className={`font-light text-off-white group-hover:text-sand transition-colors ${
+          className={`font-medium text-white group-hover:text-white/80 transition-colors ${
             large ? "text-2xl md:text-3xl leading-snug" : "text-lg"
           }`}
         >
@@ -96,7 +96,7 @@ function SectionBlock({
   return (
     <div className="mb-20 last:mb-0">
       <div className="flex items-center gap-3 mb-8">
-        <Icon size={18} className="text-sand" />
+        <Icon size={18} className="text-white/80" />
         <h3 className="heading-md text-2xl md:text-3xl">{title}</h3>
         <span className="label-text text-[10px]">{items.length} features</span>
       </div>
@@ -122,7 +122,7 @@ export default function MediaCoverage() {
           <span className="label-text">06 — Press & Interviews</span>
           <h2 className="heading-lg mt-6">The world took notice.</h2>
           <p className="body-lg mt-6 max-w-2xl">
-            From Business Recorder to television broadcasts and social publications across Pakistan — the USA Loop became a story carried far beyond the road.
+            Press coverage from across Pakistan and beyond — stories from the road that reached audiences far from the asphalt.
           </p>
         </motion.div>
 
@@ -159,7 +159,7 @@ export default function MediaCoverage() {
             target="_blank"
             rel="noopener noreferrer"
             data-cursor
-            className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-sand hover:text-sand-light transition-colors"
+            className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-white hover:text-white/80 transition-colors"
           >
             Read the lead feature on Business Recorder
             <ExternalLink size={14} />

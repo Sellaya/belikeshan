@@ -27,7 +27,7 @@ export default function Testimonials() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <span className="text-4xl text-sand/30 font-serif leading-none">&ldquo;</span>
+              <span className="text-4xl text-white/30 font-serif leading-none">&ldquo;</span>
               <p className="text-lg font-light text-off-white/90 leading-relaxed mt-4 mb-8">
                 {item.quote}
               </p>

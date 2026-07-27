@@ -20,9 +20,9 @@ export default function Filmmaking() {
           className="mb-16 md:mb-24"
         >
           <span className="label-text">05 — Filmmaking</span>
-          <h2 className="heading-lg mt-6">Documentaries from the USA Loop.</h2>
+          <h2 className="heading-lg mt-6">Films from the road.</h2>
           <p className="body-lg mt-4 max-w-xl">
-            Raw, cinematic episodes from the road — thunderstorms, desert heat, and the full journey on Be Like Shan.
+            Documentaries and episodes from belikeshan expeditions — raw, cinematic and unfiltered.
           </p>
         </motion.div>
 
@@ -36,7 +36,13 @@ export default function Filmmaking() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              onClick={() => setActiveVideo(film.youtubeId)}
+              onClick={() => {
+                if (film.externalUrl) {
+                  window.open(film.externalUrl, "_blank", "noopener,noreferrer");
+                } else if (film.youtubeId) {
+                  setActiveVideo(film.youtubeId);
+                }
+              }}
             >
               <div className="relative aspect-[16/9] overflow-hidden">
                 <Image
@@ -46,25 +52,24 @@ export default function Filmmaking() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-colors duration-500" />
+                <div className="absolute inset-0 overlay-image-bottom" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
+                <div className="absolute top-4 right-4 text-xs text-white/80 bg-black/50 px-2 py-1">
+                  {film.duration}
+                </div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full border border-off-white/40 flex items-center justify-center group-hover:border-sand group-hover:scale-110 transition-all duration-500">
+                  <div className="w-16 h-16 rounded-full border border-white/40 flex items-center justify-center group-hover:border-white group-hover:scale-110 transition-all duration-500">
                     <Play size={24} className="text-off-white ml-1" fill="currentColor" />
                   </div>
                 </div>
-                <div className="absolute top-4 right-4 text-xs text-off-white/80 bg-primary/60 px-2 py-1">
-                  {film.duration}
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <span className="label-on-image">{film.year}</span>
+                  <h3 className="text-lg font-medium text-white mt-1 line-clamp-2">
+                    {film.title}
+                  </h3>
                 </div>
               </div>
-              <div className="mt-4">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="label-text text-[10px]">{film.year}</span>
-                </div>
-                <h3 className="text-xl font-light text-off-white group-hover:text-sand transition-colors">
-                  {film.title}
-                </h3>
-                <p className="text-sm text-muted mt-2 line-clamp-2">{film.description}</p>
-              </div>
+              <p className="text-sm text-muted mt-3 line-clamp-2">{film.description}</p>
             </motion.div>
           ))}
         </div>
@@ -75,7 +80,7 @@ export default function Filmmaking() {
             target="_blank"
             rel="noopener noreferrer"
             data-cursor
-            className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-muted hover:text-sand transition-colors"
+            className="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-white/65 hover:text-white transition-colors"
           >
             View all on YouTube
             <Play size={14} />

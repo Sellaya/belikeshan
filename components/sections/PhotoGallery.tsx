@@ -83,12 +83,12 @@ export default function PhotoGallery() {
                 />
                 <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-500" />
                 {(img.caption || img.location) && (
-                  <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-primary/90 to-transparent">
+                  <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/95 via-black/70 to-transparent">
                     {img.caption && (
-                      <p className="text-sm text-off-white font-light">{img.caption}</p>
+                      <p className="text-sm text-white font-medium">{img.caption}</p>
                     )}
                     {img.location && (
-                      <p className="text-xs text-muted mt-1">{img.location}</p>
+                      <p className="text-xs text-white/60 mt-1">{img.location}</p>
                     )}
                   </div>
                 )}
@@ -145,12 +145,12 @@ export default function PhotoGallery() {
             </motion.div>
             <div className="absolute bottom-6 left-0 right-0 text-center px-6">
               {galleryImages[lightboxIndex].caption && (
-                <p className="text-base text-off-white font-light mb-1">
+                <p className="text-base text-white font-medium mb-1">
                   {galleryImages[lightboxIndex].caption}
                 </p>
               )}
               {galleryImages[lightboxIndex].location && (
-                <p className="text-sm text-muted mb-2">
+                <p className="text-sm text-white/60 mb-2">
                   {galleryImages[lightboxIndex].location}
                 </p>
               )}

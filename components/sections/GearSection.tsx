@@ -29,7 +29,7 @@ export default function GearSection() {
           className="mb-16 md:mb-24"
         >
           <span className="label-text">08 — Gear</span>
-          <h2 className="heading-lg mt-6">What carried the USA Loop.</h2>
+          <h2 className="heading-lg mt-6">Gear that crosses continents.</h2>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -47,7 +47,7 @@ export default function GearSection() {
                 transition={{ delay: i * 0.05 }}
                 onClick={() => setActive(item)}
               >
-                <div className="relative aspect-square overflow-hidden mb-3 border border-white/5 group-hover:border-sand/30 transition-all duration-500">
+                <div className="relative aspect-square overflow-hidden mb-3 border border-white/5 group-hover:border-white/30 transition-all duration-500">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -57,7 +57,7 @@ export default function GearSection() {
                   />
                   <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/0 transition-colors" />
                 </div>
-                <span className="text-xs uppercase tracking-wider text-muted group-hover:text-sand transition-colors">
+                <span className="text-xs uppercase tracking-wider text-muted group-hover:text-white transition-colors">
                   {cat.label}
                 </span>
               </motion.button>
@@ -84,7 +84,7 @@ export default function GearSection() {
               <button
                 data-cursor
                 onClick={() => setActive(null)}
-                className="absolute top-4 right-4 z-10 p-2 hover:text-sand"
+                className="absolute top-4 right-4 z-10 p-2 hover:text-white"
               >
                 <X size={20} />
               </button>
@@ -92,7 +92,7 @@ export default function GearSection() {
                 <Image src={active.image} alt={active.name} fill className="object-cover" />
               </div>
               <div className="p-8">
-                <span className="label-text text-sand">{active.brand}</span>
+                <span className="label-text text-white">{active.brand}</span>
                 <h3 className="text-2xl font-light mt-2 mb-4">{active.name}</h3>
                 <p className="text-muted font-light mb-6">{active.description}</p>
                 <div className="space-y-3">

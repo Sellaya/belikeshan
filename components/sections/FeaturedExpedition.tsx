@@ -23,9 +23,9 @@ export default function FeaturedExpedition({ expedition }: FeaturedExpeditionPro
         />
       </div>
 
-      <div className="absolute inset-0 bg-primary/75" />
+      <div className="absolute inset-0 overlay-image-full" />
 
-      <div className="relative z-10 container-wide w-full py-24">
+      <div className="relative z-10 container-wide w-full py-24 text-white">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -33,16 +33,16 @@ export default function FeaturedExpedition({ expedition }: FeaturedExpeditionPro
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="label-text">03 — Featured Expedition</span>
-            <h2 className="heading-lg mt-6 mb-4">{expedition.title}</h2>
-            <p className="text-sand text-lg mb-6">{expedition.subtitle}</p>
-            <p className="body-lg mb-8">{expedition.description}</p>
+            <span className="label-on-image">03 — Recent Expedition</span>
+            <h2 className="heading-lg mt-6 mb-4 text-white">{expedition.title}</h2>
+            <p className="text-white/80 text-lg mb-6">{expedition.subtitle}</p>
+            <p className="text-white/65 text-base leading-relaxed mb-8">{expedition.description}</p>
 
             <div className="grid grid-cols-3 gap-6 mb-10">
               {expedition.stats.slice(0, 3).map((stat) => (
                 <div key={stat.label}>
-                  <p className="text-2xl md:text-3xl font-light text-sand">{stat.value}</p>
-                  <p className="label-text mt-1 text-[10px]">{stat.label}</p>
+                  <p className="text-2xl md:text-3xl font-medium text-white">{stat.value}</p>
+                  <p className="label-on-image mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -53,7 +53,7 @@ export default function FeaturedExpedition({ expedition }: FeaturedExpeditionPro
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cursor
-                className="inline-flex items-center gap-3 px-8 py-4 bg-sand text-primary text-sm uppercase tracking-wider font-medium hover:bg-sand-light transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-3 px-8 py-3.5 bg-white text-primary text-xs uppercase tracking-[0.12em] font-medium hover:bg-white/90 transition-all"
               >
                 <Play size={16} fill="currentColor" />
                 Watch Documentary
@@ -61,7 +61,7 @@ export default function FeaturedExpedition({ expedition }: FeaturedExpeditionPro
               <Link
                 href={`/expeditions/${expedition.slug}`}
                 data-cursor
-                className="inline-flex items-center gap-3 px-8 py-4 border border-off-white/20 text-sm uppercase tracking-wider hover:border-sand hover:text-sand transition-all"
+                className="inline-flex items-center gap-3 px-8 py-3.5 border border-white/40 text-white text-xs uppercase tracking-[0.12em] hover:border-white hover:bg-white/10 transition-all"
               >
                 Explore Journey
               </Link>
@@ -75,13 +75,13 @@ export default function FeaturedExpedition({ expedition }: FeaturedExpeditionPro
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden lg:block"
           >
-            <div className="relative pl-8 border-l border-sand/20">
+            <div className="relative pl-8 border-l border-white/20">
               {expedition.timeline.map((item) => (
                 <div key={item.date} className="relative pb-10 last:pb-0">
-                  <div className="absolute -left-8 top-1 w-3 h-3 rounded-full bg-sand" />
-                  <span className="text-xs text-sand">{item.date}</span>
-                  <h4 className="text-lg font-light text-off-white mt-1">{item.title}</h4>
-                  <p className="text-sm text-muted mt-1">{item.description}</p>
+                  <div className="absolute -left-8 top-1 w-3 h-3 rounded-full bg-white" />
+                  <span className="text-xs text-white/55">{item.date}</span>
+                  <h4 className="text-lg font-medium text-white mt-1">{item.title}</h4>
+                  <p className="text-sm text-white/60 mt-1">{item.description}</p>
                 </div>
               ))}
             </div>

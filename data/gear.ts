@@ -33,13 +33,13 @@ export const gear: GearItem[] = [
     id: "camera",
     name: "Documentary Camera Kit",
     category: "camera",
-    brand: "Be Like Shan",
+    brand: "belikeshan",
     image: "/media/gallery/gallery-03.jpg",
     description:
       "Every frame of the USA Loop documentary — films, vlogs and photography from the road.",
     specs: [
       { label: "Output", value: "YouTube documentaries & vlogs" },
-      { label: "Channel", value: "Be Like Shan" },
+      { label: "Channel", value: "belikeshan" },
     ],
   },
   {

@@ -211,7 +211,7 @@ export const socialPublications: MediaItem[] = [
     platform: "instagram",
     date: "2026",
     link: "https://www.instagram.com/p/DbKVegsF2jJ/",
-    excerpt: "Coverage of the defining expedition of Be Like Shan.",
+    excerpt: "Coverage of the defining expedition of belikeshan.",
     thumbnail: "/media/press/press-09.jpg",
   },
   {

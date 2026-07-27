@@ -6,7 +6,7 @@ export const films: Film[] = [
     title: "USA Loop Journey Trailer",
     description:
       "The official trailer for the USA Loop — a 33-day, 10,000-mile solo motorcycle expedition across 25 U.S. states on a Suzuki DR650, carrying the Pakistani flag.",
-    youtubeId: "JSuWrvJGpXA",
+    externalUrl: "https://www.instagram.com/reel/DauptdcBP4g/",
     thumbnail: "/media/gallery/gallery-08.jpg",
     duration: "Trailer",
     year: "2026",
