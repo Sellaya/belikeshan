@@ -56,7 +56,7 @@ const routeWaypoints: [number, number][] = [
   [38.91, -77.04], // Washington D.C.
   [40.71, -74.01], // New York
   [42.65, -73.78], // Albany
-  [43.65, -79.38], // Toronto area
+  [42.65, -78.85], // Buffalo
   [41.88, -87.63], // Chicago
   [44.98, -93.27], // Minneapolis
   [44.08, -103.23], // South Dakota

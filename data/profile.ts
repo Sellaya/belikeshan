@@ -9,12 +9,12 @@ export const profile: Profile = {
   subtitle:
     "Pakistani adventure rider, filmmaker and storyteller — documenting expeditions across continents, one road and one conversation at a time.",
   roles: ["Adventure Rider", "Filmmaker", "Storyteller"],
-  bio: "For Shan-e-Ali, life is motion. Originally from Lahore and now based in Toronto, he has spent years on two wheels across Pakistan before carrying that same spirit abroad. His most recent expedition — a 33-day solo loop across 25 U.S. states on a Suzuki DR650 with a Pakistani passport and flag — is one chapter in a much longer story. The next adventure is already in process. Through belikeshan, he shares films, photography and stories from every journey — not just one ride, but a lifetime of exploration.",
+  bio: "For Shan-e-Ali, life is motion. Originally from Lahore, he has spent years on two wheels across Pakistan before carrying that same spirit abroad. His most recent expedition — a 33-day solo loop across 25 U.S. states on a Suzuki DR650 with a Pakistani passport and flag — is one chapter in a much longer story. The next adventure is already in process. Through belikeshan, he shares films, photography and stories from every journey — not just one ride, but a lifetime of exploration.",
   shortBio:
-    "Toronto-based Pakistani adventure motorcyclist, filmmaker and storyteller. Documenting expeditions, human connection and the roads that link cultures — with the next adventure already underway.",
+    "Pakistani adventure motorcyclist, filmmaker and storyteller. Documenting expeditions, human connection and the roads that link cultures — with the next adventure already underway.",
   portrait: "/media/gallery/gallery-50.jpg",
   email: "hello@belikeshan.com",
-  location: "Toronto, Canada · Originally from Lahore, Pakistan",
+  location: "Originally from Lahore, Pakistan",
   philosophy: "Life is Motion.",
   social: {
     instagram: SOCIAL_CHANNELS.instagram,
@@ -60,7 +60,7 @@ export const profile: Profile = {
       year: "Always",
       title: "belikeshan",
       description:
-        "Based in Toronto, building a body of work across many journeys — films, photography and stories that carry Pakistan to the world.",
+        "Building a body of work across many journeys — films, photography and stories that carry Pakistan to the world.",
     },
   ],
 };

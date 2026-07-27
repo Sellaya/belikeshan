@@ -84,8 +84,8 @@ export default function LiveMap() {
               },
               {
                 icon: MapPin,
-                label: "Based",
-                value: "Toronto, Canada · Originally Lahore, Pakistan",
+                label: "Origins",
+                value: "Lahore, Pakistan",
               },
             ].map((item, i) => (
               <motion.div

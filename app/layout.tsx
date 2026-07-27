@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "Pakistani passport motorcycle journey",
     "Suzuki DR650 adventure rider",
     "motorcycle travel filmmaker",
-    "Toronto adventure rider",
+    "Pakistani adventure rider",
   ],
   openGraph: {
     title: "Shan-e-Ali — Explore Beyond Maps",
