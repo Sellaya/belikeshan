@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/verify-deps.js && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "verify-deps": "node scripts/verify-deps.js"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
@@ -18,7 +19,6 @@
     "lenis": "^1.3.8",
     "lucide-react": "^0.525.0",
     "next": "^15.4.4",
-    "next-mdx-remote": "^6.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwind-merge": "^3.3.1"
@@ -30,8 +30,5 @@
     "@types/react-dom": "^19.1.6",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3"
-  },
-  "overrides": {
-    "next-mdx-remote": "^6.0.0"
   }
 }
