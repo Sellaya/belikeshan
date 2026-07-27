@@ -32,7 +32,7 @@ export const televisionInterviews: MediaItem[] = [
   },
   {
     id: "express-news",
-    title: "Express News — Broadcast Interview",
+    title: "Express News Expresso — Broadcast Interview",
     publication: "Express News",
     type: "tv",
     category: "television",
@@ -40,8 +40,8 @@ export const televisionInterviews: MediaItem[] = [
     date: "2026",
     link: "https://www.facebook.com/share/v/1BrtygyGtk/",
     excerpt:
-      "Broadcast interview sharing the journey, the challenges and the cultural exchange at the heart of the ride.",
-    thumbnail: "/media/press/press-06.jpg",
+      "Expresso on Express News — broadcast interview sharing the USA Loop journey, the challenges and the cultural exchange at the heart of the ride.",
+    thumbnail: "/media/press/express-news.png",
   },
   {
     id: "hum-news",

@@ -1,9 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 import { profile } from "@/data/profile";
 import { footerColumns } from "@/data/navigation";
 import { SOCIAL_CHANNELS } from "@/data/social-videos";
+
+const socialLinks = [
+  { label: "YouTube", href: SOCIAL_CHANNELS.youtubeHandle, icon: Youtube },
+  { label: "Instagram", href: SOCIAL_CHANNELS.instagram, icon: Instagram },
+  { label: "Facebook", href: SOCIAL_CHANNELS.facebook, icon: Facebook },
+] as const;
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -20,6 +27,20 @@ export default function Footer() {
               Pakistani adventure rider, filmmaker & storyteller — solo motorcycle expeditions, films
               & photography from the road.
             </p>
+            <div className="flex items-center gap-3 mt-5">
+              {socialLinks.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${profile.brand} on ${label}`}
+                  className="touch-target flex items-center justify-center border border-white/15 text-white/65 hover:text-white hover:border-white/40 hover:bg-white/5 transition-colors"
+                >
+                  <Icon size={18} strokeWidth={1.75} />
+                </a>
+              ))}
+            </div>
           </div>
 
           {footerColumns.map((col) => (
@@ -45,23 +66,20 @@ export default function Footer() {
           <p className="text-xs text-white/55 text-center sm:text-left">
             &copy; {year} {profile.name} · {profile.brand} · {profile.email}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            <a
-              href={SOCIAL_CHANNELS.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs uppercase tracking-wider text-white/55 hover:text-white transition-colors"
-            >
-              YouTube
-            </a>
-            <a
-              href={SOCIAL_CHANNELS.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs uppercase tracking-wider text-white/55 hover:text-white transition-colors"
-            >
-              Instagram
-            </a>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            {socialLinks.map(({ label, href, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${profile.brand} on ${label}`}
+                className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-white/55 hover:text-white transition-colors"
+              >
+                <Icon size={16} strokeWidth={1.75} />
+                {label}
+              </a>
+            ))}
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
