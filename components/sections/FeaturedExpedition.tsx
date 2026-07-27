@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import type { Expedition } from "@/lib/types";
+import { SOCIAL_VIDEOS } from "@/data/social-videos";
 
 interface FeaturedExpeditionProps {
   expedition: Expedition;
@@ -49,7 +50,7 @@ export default function FeaturedExpedition({ expedition }: FeaturedExpeditionPro
 
             <div className="flex flex-wrap gap-4">
               <Link
-                href="https://www.youtube.com/watch?v=JSuWrvJGpXA"
+                href={SOCIAL_VIDEOS.usaLoopTrailer.externalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-cursor

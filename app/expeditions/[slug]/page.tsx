@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer";
 import MarkdownContent from "@/components/content/MarkdownContent";
 import { getExpedition, getExpeditionSlugs } from "@/lib/content";
 import { profile } from "@/data/profile";
+import { videoWatchUrl } from "@/data/social-videos";
 import { formatNumber } from "@/lib/utils";
 
 interface Props {
@@ -137,7 +138,7 @@ export default async function ExpeditionPage({ params }: Props) {
                   {expedition.videos.map((video) => (
                     <a
                       key={video.title}
-                      href={`https://youtube.com/watch?v=${video.youtubeId}`}
+                      href={videoWatchUrl(video)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 p-4 border border-white/5 hover:border-white/30 transition-colors"

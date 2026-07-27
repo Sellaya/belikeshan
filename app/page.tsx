@@ -7,6 +7,7 @@ import Journeys from "@/components/sections/Journeys";
 import FeaturedExpedition from "@/components/sections/FeaturedExpedition";
 import PhotoGallery from "@/components/sections/PhotoGallery";
 import Filmmaking from "@/components/sections/Filmmaking";
+import RecentSocial from "@/components/sections/RecentSocial";
 import MediaCoverage from "@/components/sections/MediaCoverage";
 import SupportSection from "@/components/sections/SupportSection";
 import GearSection from "@/components/sections/GearSection";
@@ -15,11 +16,15 @@ import Testimonials from "@/components/sections/Testimonials";
 import Journal from "@/components/sections/Journal";
 import Contact from "@/components/sections/Contact";
 import { getExpeditions, getFeaturedExpedition, getBlogPosts } from "@/lib/content";
+import { getRecentSocialVideos } from "@/lib/social-feed";
 
-export default function HomePage() {
+export const revalidate = 3600;
+
+export default async function HomePage() {
   const expeditions = getExpeditions();
   const featured = getFeaturedExpedition();
   const posts = getBlogPosts();
+  const socialVideos = await getRecentSocialVideos();
 
   return (
     <>
@@ -32,6 +37,7 @@ export default function HomePage() {
         {featured && <FeaturedExpedition expedition={featured} />}
         <PhotoGallery />
         <Filmmaking />
+        <RecentSocial youtube={socialVideos.youtube} instagram={socialVideos.instagram} />
         <MediaCoverage />
         <SupportSection />
         <GearSection />

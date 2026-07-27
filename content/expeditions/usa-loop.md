@@ -81,7 +81,7 @@ gallery:
   - /media/gallery/gallery-51.jpg
 videos:
   - title: USA Loop Journey Trailer
-    youtubeId: JSuWrvJGpXA
+    externalUrl: https://www.instagram.com/reel/DauptdcBP4g/
   - title: I Survived 3 Thunderstorms in 1 Day | USA Loop Day 7
     youtubeId: nBG01dbLDWA
 timeline:

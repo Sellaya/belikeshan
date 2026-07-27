@@ -1,4 +1,5 @@
 import type { Profile } from "@/lib/types";
+import { SOCIAL_CHANNELS } from "@/data/social-videos";
 
 export const profile: Profile = {
   name: "Shan-e-Ali",
@@ -16,9 +17,9 @@ export const profile: Profile = {
   location: "Toronto, Canada · Originally from Lahore, Pakistan",
   philosophy: "Life is Motion.",
   social: {
-    instagram: "https://www.instagram.com/belikeshan/",
-    youtube: "https://www.youtube.com/channel/UC174LS2fGBFR1vOcplMkjyg",
-    facebook: "https://www.facebook.com/belikeshan/",
+    instagram: SOCIAL_CHANNELS.instagram,
+    youtube: SOCIAL_CHANNELS.youtube,
+    facebook: SOCIAL_CHANNELS.facebook,
     support: "https://buymeacoffee.com/belikeshan",
     email: "mailto:hello@belikeshan.com",
   },

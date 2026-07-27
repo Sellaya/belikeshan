@@ -1,3 +1,12 @@
+export interface SocialFeedItem {
+  id: string;
+  platform: "youtube" | "instagram";
+  title: string;
+  url: string;
+  thumbnail: string;
+  publishedAt: string;
+}
+
 export interface Expedition {
   slug: string;
   title: string;
@@ -20,7 +29,7 @@ export interface Expedition {
   mapCenter: { lat: number; lng: number };
   stats: { label: string; value: string }[];
   gallery: string[];
-  videos: { title: string; youtubeId: string; thumbnail?: string }[];
+  videos: { title: string; youtubeId?: string; externalUrl?: string; thumbnail?: string }[];
   timeline: { date: string; title: string; description: string }[];
   seo: { title: string; description: string; keywords: string[] };
 }
