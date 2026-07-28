@@ -40,7 +40,14 @@ export const navGroups: NavGroup[] = [
       { label: "Photography", href: "#gallery", type: "hash", description: "Gallery from the road" },
       { label: "Films", href: "#films", type: "hash", description: "Documentaries & trailers" },
       { label: "Latest Videos", href: "#social", type: "hash", description: "YouTube & Instagram" },
-      { label: "Press & TV", href: "#press", type: "hash", description: "Interviews & coverage" },
+    ],
+  },
+  {
+    label: "Press",
+    href: "/press",
+    links: [
+      { label: "Press & Media", href: "/press", type: "page", description: "Verified editorial coverage" },
+      { label: "Press Highlights", href: "#press", type: "hash", description: "Homepage preview" },
     ],
   },
   {
@@ -85,7 +92,7 @@ export const footerColumns = [
     links: [
       { label: "Films", href: "/#films" },
       { label: "Latest Videos", href: "/#social" },
-      { label: "Press & TV", href: "/#press" },
+      { label: "Press & Media", href: "/press" },
       { label: "Travel Journal", href: "/blog" },
     ],
   },

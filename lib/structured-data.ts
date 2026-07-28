@@ -1,4 +1,5 @@
 import { profile } from "@/data/profile";
+import { verifiedPressCoverage } from "@/data/press";
 import { SOCIAL_CHANNELS } from "@/data/social-videos";
 import { absoluteUrl, CREATOR, SITE_NAME, SITE_URL } from "@/lib/seo";
 import type { BlogPost, Expedition } from "@/lib/types";
@@ -106,6 +107,31 @@ export function blogPostJsonLd(post: BlogPost & { content?: string }) {
     },
     mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
     articleSection: post.category,
+  };
+}
+
+export function pressPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${SITE_URL}/#person`,
+    name: profile.name,
+    alternateName: [profile.brand, profile.handle],
+    description:
+      "Pakistani adventure motorcyclist, expedition rider and documentary storyteller.",
+    url: SITE_URL,
+    image: absoluteUrl(profile.portrait),
+    jobTitle: ["Adventure Motorcyclist", "Expedition Rider", "Documentary Storyteller"],
+    nationality: { "@type": "Country", name: "Pakistan" },
+    subjectOf: verifiedPressCoverage.map((item) => ({
+      "@type": "NewsArticle",
+      headline: item.title,
+      url: item.url,
+      datePublished: item.date,
+      publisher: { "@type": "Organization", name: item.publication },
+      description: item.description,
+    })),
+    sameAs: [SOCIAL_CHANNELS.youtube, SOCIAL_CHANNELS.instagram, SOCIAL_CHANNELS.facebook],
   };
 }
 
